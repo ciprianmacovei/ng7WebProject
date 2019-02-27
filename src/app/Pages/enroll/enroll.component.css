@@ -1,0 +1,34 @@
+.containerEnroll {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+
+}
+
+.containerPositionMiddle {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  margin: 2% 0 2%;
+}
+
+.responsiveContainerEnroll {
+  width: 95% !important;
+}
+
+.selectionDisplay{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.radio-button {
+  margin: 5px;
+}
+

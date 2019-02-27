@@ -1,0 +1,63 @@
+<div class="containerPositionMiddle">
+  <div class="containerEnroll" [class.responsiveContainerEnroll]="( isHandset$ | async)">
+
+    <mat-form-field>
+      <mat-select placeholder="Gender" [formControl]="genderControll" required>
+        <mat-option *ngFor="let gender of EnrollGender" [value]="gender.value">
+          {{gender.viewValue}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="genderControll.hasError('required')">Choose a Gender</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="Placeholder" [formControl]="enrollControllFirstName" required>
+      <mat-error *ngIf="enrollControllFirstName.hasError('required')">Please write down your first name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Placeholder" [formControl]="enrollControllLastName" required>
+      <mat-error *ngIf="enrollControllLastName.hasError('required')">Please write down your last name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Cell Phone</mat-label>
+      <input matInput placeholder="Placeholder" [formControl]="enrollControllCellPhone" required>
+      <mat-error *ngIf="enrollControllCellPhone.hasError('required')">Please write down your last name</mat-error>
+      <mat-error *ngIf="enrollControllCellPhone.hasError('pattern') && !enrollControllCellPhone.hasError('required')">The
+        phone you write is not good</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Placeholder" [formControl]="enrollControllEmail" required>
+      <mat-error *ngIf="enrollControllEmail.hasError('required')">Please write down your last name</mat-error>
+      <mat-error *ngIf="enrollControllEmail.hasError('email') && !enrollControllEmail.hasError('required')">Please
+        enter a valid email address</mat-error>
+    </mat-form-field>
+
+    <h4>SAE Courses</h4>
+    <mat-radio-group class="radio-group" [(ngModel)]="courseSelected" required>
+      <mat-radio-button class="radio-button" color="primary" *ngFor="let course of courses" [value]="course">
+        {{course}}
+      </mat-radio-button>
+    </mat-radio-group>
+
+
+    <div class="containerPositionMiddle">
+      <div matTooltip="You need to complete all the fields" *ngIf="!checkValidators()">
+        <button mat-flat-button color="primary" disabled>
+          Enroll
+        </button>
+      </div>
+      <div *ngIf="checkValidators()">
+        <button mat-flat-button color="primary">
+          Enroll
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

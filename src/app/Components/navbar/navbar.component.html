@@ -1,0 +1,94 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <button mat-menu-item (click)="moveTo('home')">
+        <mat-icon>home</mat-icon><span>Home</span>
+      </button>
+
+      <button mat-menu-item [matMenuTriggerFor]="menu">
+        <mat-icon>
+          library_books
+        </mat-icon>
+        <span>
+          Courses
+        </span>
+      </button>
+
+      <mat-menu #menu="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
+        <ng-template matMenuContent>
+          <button mat-menu-item>
+            <mat-icon>surround_sound</mat-icon><span>Diplomas</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>school</mat-icon><span>Short Courses</span>
+          </button>
+        </ng-template>
+      </mat-menu>
+
+
+      <button mat-menu-item>
+        <mat-icon>date_range</mat-icon><span>Cost & Dates</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>accessibility</mat-icon><span>Enroll</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>people</mat-icon><span>Students</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>contact_support</mat-icon><span>About Us</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>local_library</mat-icon><span>Our Services</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notification_important</mat-icon><span>News</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>perm_contact_calendar</mat-icon><span>Contact</span>
+      </button>
+      <div class="socialMedia">
+        <mat-grid-list cols="6" rowHeight="30px">
+          <mat-grid-tile></mat-grid-tile>
+          <mat-grid-tile class="clickAble"><i class="icon ion-logo-facebook"></i></mat-grid-tile>
+          <mat-grid-tile class="clickAble"><i class="icon ion-logo-youtube"></i></mat-grid-tile>
+          <mat-grid-tile class="clickAble"><i class="icon ion-logo-twitter"></i></mat-grid-tile>
+          <mat-grid-tile class="clickAble"><i class="icon ion-logo-vimeo"></i></mat-grid-tile>
+          <mat-grid-tile></mat-grid-tile>
+        </mat-grid-list>
+      </div>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span class="ml-2"><img src="https://bucharest.sae.edu/templates/local/strict/img/sae_logo.png" class="LogoSae"></span>
+        <span class="spaceR"></span>
+      
+          <button appLoginAndRegister mat-button (click)="moveTo('login')" class="mr-2">
+            <mat-icon class="colorRightMenu">exit_to_app</mat-icon>
+            <span class="colorRightMenu">Login</span>
+          </button>
+
+          <button appLoginAndRegister mat-button (click)="moveTo('register')">
+          <mat-icon class="colorRightMenu">get_app</mat-icon>
+          <span  class="colorRightMenu">Register</span>
+          </button>
+      
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <ng-content></ng-content>
+
+
+  </mat-sidenav-content>
+
+
+</mat-sidenav-container>

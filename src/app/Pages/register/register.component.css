@@ -1,0 +1,31 @@
+.loginContainer{
+    margin-top:10%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    align-self: center;
+    justify-content: center;
+   
+}
+
+.containerInputs{
+    border-radius: 5px;
+    background-color:grey;
+    padding: 10px;
+    width: 20%;
+}
+
+.containerInputs > *{
+    width: 100%;
+}
+
+.buttonAlignCenter{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+}
+
+.responsiveLogin {
+    width: 100% !important;
+}

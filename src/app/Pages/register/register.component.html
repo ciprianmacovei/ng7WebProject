@@ -1,0 +1,21 @@
+<div class="loginContainer" >
+  <div class="containerInputs" [class.responsiveLogin] = "(isHandset$ | async)">
+    <mat-form-field >
+      <input matInput placeholder="Email" >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Enter your password" [type]="hidePass ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hidePass = !hidePass">{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Enter your password" [type]="hideConfim ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hideConfim = !hideConfim">{{hideConfim ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+    
+    <div class="buttonAlignCenter">
+    <button mat-raised-button color="primary">Register</button>
+    </div>
+  </div>
+</div>

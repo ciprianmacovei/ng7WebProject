@@ -1,0 +1,76 @@
+.example-card {
+  max-width: 400px;
+}
+
+.matCard {
+  width: 40%;
+  margin-left: 7.5em;
+  float:left;
+  margin-bottom: 20px;
+}
+
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+.cardsRow{
+  display:flex;
+  flex-direction: row;
+}
+
+.matCardTitle {
+  text-overflow: ellipsis;
+  width: 6.5em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (max-width:1450px) {
+  mat-toolbar-row>span {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width:1165px) {
+  mat-toolbar-row>span {
+    font-size: 10px;
+  }
+
+  .mat-card-title {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  button {
+    margin: 0 !important;
+  }
+
+  mat-card-content>p {
+    font-size: 7px;
+  }
+
+  mat-icon {
+    font-size: 12px;
+  }
+
+  mat-toolbar-row>span {
+    font-size: 10px;
+  }
+  .mat-toolbar-row{
+    font-size:10px;
+  }
+  .mat-card-title{
+    font-size:10px;
+  }
+}
+
+
+
