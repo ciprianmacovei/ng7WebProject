@@ -9,7 +9,7 @@
           New Audio Engineering intake starting January 2019. Ask now for more information at bucharest@sae.edu.
         </p>
       </mat-card-content>
-      <mat-card-actions>
+      <mat-card-actions [class.centerItems]="!(isHandset$ | async)">
         <button mat-raised-button color="warn" (click)="moveTo('enroll')">ENROLL NOW</button>
         <button mat-raised-button color="primary">NEWS LETTER</button>
       </mat-card-actions>
@@ -93,7 +93,7 @@
 
 
 
-<mat-grid-list cols="6" [rowHeight]="( isHandset$ | async )? '1:6': '1:2' " >
+<mat-grid-list cols="6" [rowHeight]="( isHandset$ | async )? '1:6': '1:2' ">
   <mat-grid-tile colspan="2">
     <mat-card class="example-card">
       <mat-card-header>
@@ -107,122 +107,122 @@
           bred for hunting.
         </p>
       </mat-card-content>
-      <mat-card-actions>
+      <mat-card-actions class="centerItems">
         <button mat-raised-button color="primary">Read More</button>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
 
   <mat-grid-tile colspan="2">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title [class.matCardTitle]="(isHandset$ | async)">Workshop Ableton Live 10</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image src="https://bucharest.sae.edu/media_thumbs/Bucharest/News/55550_Workshop_Ableton_live_10_320x175.png" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button color="primary">Read More</button>
-        </mat-card-actions>
-      </mat-card>
-    </mat-grid-tile>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title [class.matCardTitle]="(isHandset$ | async)">Workshop Ableton Live 10</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="https://bucharest.sae.edu/media_thumbs/Bucharest/News/55550_Workshop_Ableton_live_10_320x175.png"
+        alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-actions class="centerItems">
+        <button mat-raised-button color="primary">Read More</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
 
 
   <mat-grid-tile colspan="2">
-      <mat-card class="example-card">
-          <mat-card-header>
-            <mat-card-title [class.matCardTitle]="(isHandset$ | async)">Workshop Ableton Live 10</mat-card-title>
-          </mat-card-header>
-          <img mat-card-image src="https://bucharest.sae.edu/media_thumbs/Bucharest/Gallery/55169_site_config_320x175.jpg" alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <p>
-              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-              bred for hunting.
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button color="primary">Read More</button>
-          </mat-card-actions>
-        </mat-card>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title [class.matCardTitle]="(isHandset$ | async)">Workshop Ableton Live 10</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="https://bucharest.sae.edu/media_thumbs/Bucharest/Gallery/55169_site_config_320x175.jpg"
+        alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-actions class="centerItems">
+        <button mat-raised-button color="primary">Read More</button>
+      </mat-card-actions>
+    </mat-card>
 
-  </mat-grid-tile>  
+  </mat-grid-tile>
 </mat-grid-list>
 
 
 
-<div [class.paddingButtonFullScreen] = "!( isHandset$ | async )">
-  <mat-card [class.matCard]="!( isHandset$ | async )">
-    <mat-card-title>News</mat-card-title>
-    <mat-card-content>
-      <mat-toolbar color="primary">
-        <mat-toolbar-row>
-          <span>Audio Engineering Diploma - 29th of January 2019</span>
-        </mat-toolbar-row>
-      </mat-toolbar>
+<mat-card [class.matCard]="!( isHandset$ | async )">
+  <mat-card-title>News</mat-card-title>
+  <mat-card-content>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>Audio Engineering Diploma - 29th of January 2019</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
 
-      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
 
-        <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
-          <li class="mat-tree-node">
-            <!-- use a disabled button to provide padding for tree leaf -->
-            <button mat-icon-button disabled></button>
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+        <li class="mat-tree-node">
+          <!-- use a disabled button to provide padding for tree leaf -->
+          <button mat-icon-button disabled></button>
+          {{node.name}}
+        </li>
+      </mat-tree-node>
+
+      <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+        <li>
+          <div class="mat-tree-node">
+            <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.name">
+              <mat-icon class="mat-icon-rtl-mirror">
+                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+              </mat-icon>
+            </button>
             {{node.name}}
-          </li>
-        </mat-tree-node>
-
-        <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
-          <li>
-            <div class="mat-tree-node">
-              <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.name">
-                <mat-icon class="mat-icon-rtl-mirror">
-                  {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                </mat-icon>
-              </button>
-              {{node.name}}
-            </div>
-            <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
-              <ng-container matTreeNodeOutlet></ng-container>
-            </ul>
-          </li>
-        </mat-nested-tree-node>
-      </mat-tree>
-    </mat-card-content>
-  </mat-card>
+          </div>
+          <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+            <ng-container matTreeNodeOutlet></ng-container>
+          </ul>
+        </li>
+      </mat-nested-tree-node>
+    </mat-tree>
+  </mat-card-content>
+</mat-card>
 
 
 
-  <mat-card [class.matCard]="!( isHandset$ | async )">
-      <mat-card-title>Location</mat-card-title>
-      <mat-card-content>
-        <mat-toolbar color="primary">
-          <mat-toolbar-row>
-            <span>Audio Engineering Diploma - 29th of January 2019</span>
-          </mat-toolbar-row>
-          <mat-toolbar-row>
-              355 - 357 Grivitei Street
-              <br>
-          </mat-toolbar-row>
-          <mat-toolbar-row>
-              Bucharest, District 1
-              010717, Romania
-          </mat-toolbar-row>
-          <mat-toolbar-row>
-              Opening hours
-              Monday to Friday
-              10:00 am - 6:00 pm
-          </mat-toolbar-row>
-          <mat-toolbar-row>
-              Tel: + 40 758 014 611
-              <br>
-              Email: bucharest@sae.edu
-          </mat-toolbar-row>
-        </mat-toolbar>
-      </mat-card-content>
-  </mat-card>
-</div>
+<mat-card [class.matCard]="!( isHandset$ | async )">
+  <mat-card-title>Location</mat-card-title>
+  <mat-card-content>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>Audio Engineering Diploma - 29th of January 2019</span>
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        355 - 357 Grivitei Street
+        <br>
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        Bucharest, District 1
+        010717, Romania
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        Opening hours
+        Monday to Friday
+        10:00 am - 6:00 pm
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        Tel: + 40 758 014 611
+        <br>
+        Email: bucharest@sae.edu
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </mat-card-content>
+</mat-card>

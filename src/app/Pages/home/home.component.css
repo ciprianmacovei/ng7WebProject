@@ -32,6 +32,13 @@
   overflow: hidden;
 }
 
+.centerItems {
+  display:flex;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+}
+
 @media screen and (max-width:1450px) {
   mat-toolbar-row>span {
     font-size: 15px;
@@ -46,11 +53,15 @@
   .mat-card-title {
     font-size: 14px;
   }
+
+  .mat-toolbar-row {
+    font-size: 13px;
+  }
 }
 
 @media screen and (max-width: 750px) {
   button {
-    margin: 0 !important;
+    margin: 0 0 4px !important;
   }
 
   mat-card-content>p {
