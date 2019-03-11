@@ -17,9 +17,9 @@ const shotCoursesList: shortCourses[] = [
   {
     name: 'Short Courses',
     children: [
-      {name: 'Live Sound - 28.01.19 - Radu-Layer Dobra - 11:00 - 17:00'},
-      {name: 'Animatie 3DsMax - 29.01.19 - Calin Cazan - 16:00 - 19:00'},
-      {name: 'Secrets of Mixing - 04.02.19 - Cristian Dobrica - 17:00 - 20:00'}
+      { name: 'Live Sound - 28.01.19 - Radu-Layer Dobra - 11:00 - 17:00' },
+      { name: 'Animatie 3DsMax - 29.01.19 - Calin Cazan - 16:00 - 19:00' },
+      { name: 'Secrets of Mixing - 04.02.19 - Cristian Dobrica - 17:00 - 20:00' }
     ]
   }
 ];
@@ -33,9 +33,7 @@ const shotCoursesList: shortCourses[] = [
 })
 export class HomeComponent implements OnInit {
 
-  private windowHeight: String = '10em';
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(map(result => result.matches));
-
   treeControl = new NestedTreeControl<shortCourses>(node => node.children);
   dataSource = new MatTreeNestedDataSource<shortCourses>();
 
@@ -44,6 +42,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 

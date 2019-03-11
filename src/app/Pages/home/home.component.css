@@ -18,20 +18,8 @@ mat-icon {
   list-style-type: none;
 }
 
-.cardsRow{
-  display:flex;
-  flex-direction: row;
-}
-
-.matCardTitle {
-  text-overflow: ellipsis;
-  width: 6.5em;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
 .centerItems {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-self: center;
   align-items: center;
