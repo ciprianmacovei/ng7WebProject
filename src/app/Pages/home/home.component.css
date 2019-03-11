@@ -2,12 +2,6 @@
   max-width: 400px;
 }
 
-.matCard {
-  width: 40%;
-  margin-left: 7.5em;
-  float:left;
-  margin-bottom: 20px;
-}
 
 .example-tree-invisible {
   display: none;
@@ -20,68 +14,28 @@
   list-style-type: none;
 }
 
-.cardsRow{
-  display:flex;
-  flex-direction: row;
-}
-
-.matCardTitle {
-  text-overflow: ellipsis;
-  width: 6.5em;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
 .centerItems {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-self: center;
   align-items: center;
 }
 
-@media screen and (max-width:1450px) {
-  mat-toolbar-row>span {
-    font-size: 15px;
-  }
+.marginForRowDivs {
+  margin: 2rem;
 }
 
-@media screen and (max-width:1165px) {
-  mat-toolbar-row>span {
-    font-size: 10px;
-  }
-
-  .mat-card-title {
-    font-size: 14px;
-  }
-
-  .mat-toolbar-row {
-    font-size: 13px;
-  }
+.cardMargins {
+  margin: 1rem;
 }
 
-@media screen and (max-width: 750px) {
-  button {
-    margin: 0 0 4px !important;
-  }
-
-  mat-card-content>p {
-    font-size: 7px;
-  }
-
-  mat-icon {
-    font-size: 12px;
-  }
-
-  mat-toolbar-row>span {
-    font-size: 10px;
-  }
-  .mat-toolbar-row{
-    font-size:10px;
-  }
-  .mat-card-title{
-    font-size:10px;
-  }
+.saeInfo {
+  background-color: #D00B6A;
+  border-radius: 4px;
+  width: auto;
+  height: auto;
 }
 
-
-
+.saeInfo > div {
+  margin: 10px;
+}
