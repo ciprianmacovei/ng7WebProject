@@ -1,16 +1,14 @@
-.example-card {
-  max-width: 400px;
-}
-
-.matCard {
-  width: 40%;
-  margin-left: 7.5em;
-  float:left;
-  margin-bottom: 20px;
+.marginTop {
+  margin-top:2%;
 }
 
 .example-tree-invisible {
   display: none;
+}
+
+mat-icon {
+  margin-right: 1em;
+  box-sizing: border-box;
 }
 
 .example-tree ul,
@@ -39,49 +37,20 @@
   align-items: center;
 }
 
-@media screen and (max-width:1450px) {
-  mat-toolbar-row>span {
-    font-size: 15px;
-  }
+.buttomToolBar {
+  top:10rem;
+  position: relative;
 }
 
-@media screen and (max-width:1165px) {
-  mat-toolbar-row>span {
-    font-size: 10px;
-  }
-
-  .mat-card-title {
-    font-size: 14px;
-  }
-
-  .mat-toolbar-row {
-    font-size: 13px;
-  }
+.title-center {
+  flex: 1 1 auto;
+  text-align: center;
+  font-size: 1.4vh;
+}
+mat-toolbar-row{
+  font-size:1.6vh;
 }
 
-@media screen and (max-width: 750px) {
-  button {
-    margin: 0 0 4px !important;
-  }
-
-  mat-card-content>p {
-    font-size: 7px;
-  }
-
-  mat-icon {
-    font-size: 12px;
-  }
-
-  mat-toolbar-row>span {
-    font-size: 10px;
-  }
-  .mat-toolbar-row{
-    font-size:10px;
-  }
-  .mat-card-title{
-    font-size:10px;
-  }
-}
 
 
 

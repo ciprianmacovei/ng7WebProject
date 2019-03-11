@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 // Angular Material
 import { MaterialModule } from './material';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // components
 import { AppComponent } from './app.component';
@@ -22,6 +23,8 @@ import { RegisterComponent } from './Pages/register/register.component';
 import { EnrollComponent } from './Pages/enroll/enroll.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { LoginAndRegisterDirective } from './Directives/login-and-register.directive';
+import { HeaderComponent } from './Components/header/header.component';
+import { CoursesComponent } from './Pages/courses/courses.component';
 
 
 
@@ -35,6 +38,8 @@ import { LoginAndRegisterDirective } from './Directives/login-and-register.direc
     EnrollComponent,
     NavbarComponent,
     LoginAndRegisterDirective,
+    HeaderComponent,
+    CoursesComponent,
   ],
   imports: [
     MatFormFieldModule,
@@ -44,7 +49,8 @@ import { LoginAndRegisterDirective } from './Directives/login-and-register.direc
     MaterialModule,
     ReactiveFormsModule,
     LayoutModule,
-    FormsModule
+    FormsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

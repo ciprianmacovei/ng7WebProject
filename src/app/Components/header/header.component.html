@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-header class="centerItems">
+      <mat-card-title >Sae Enroll</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="centerItems">
+      <p>
+        New Audio Engineering intake starting January 2019. Ask now for more information at bucharest@sae.edu.
+      </p>
+    </mat-card-content>
+    <mat-card-actions [class.centerItems]="!(isHandset$ | async)">
+      <button mat-raised-button color="warn" (click)="moveTo('enroll')">ENROLL NOW</button>
+      <button mat-raised-button color="primary">NEWS LETTER</button>
+    </mat-card-actions>
+  </mat-card>

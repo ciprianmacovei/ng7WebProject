@@ -3,20 +3,16 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
+      <mat-menu></mat-menu>
       <button mat-menu-item (click)="moveTo('home')">
         <mat-icon>home</mat-icon><span>Home</span>
       </button>
 
-      <button mat-menu-item [matMenuTriggerFor]="menu">
-        <mat-icon>
-          library_books
-        </mat-icon>
-        <span>
-          Courses
-        </span>
+      <button mat-menu-item (click)="moveTo('courses')"> 
+        <mat-icon>library_books</mat-icon><span>Courses</span>
       </button>
-
-      <mat-menu #menu="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
+      <!-- [matMenuTriggerFor]="menu"  -->
+      <!-- <mat-menu #menu="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
         <ng-template matMenuContent>
           <button mat-menu-item>
             <mat-icon>surround_sound</mat-icon><span>Diplomas</span>
@@ -26,7 +22,7 @@
           </button>
         </ng-template>
       </mat-menu>
-
+      <mat-menu></mat-menu> -->
 
       <button mat-menu-item>
         <mat-icon>date_range</mat-icon><span>Cost & Dates</span>
@@ -49,6 +45,8 @@
       <button mat-menu-item>
         <mat-icon>perm_contact_calendar</mat-icon><span>Contact</span>
       </button>
+
+
       <div class="socialMedia">
         <mat-grid-list cols="6" rowHeight="30px">
           <mat-grid-tile></mat-grid-tile>
@@ -65,24 +63,24 @@
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <mat-toolbar-row>
-        
+
         <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
         <span class="ml-2"><img src="https://bucharest.sae.edu/templates/local/strict/img/sae_logo.png" class="LogoSae"></span>
         <span class="spaceR"></span>
-      
-          <button appLoginAndRegister mat-button (click)="moveTo('login')" class="mr-2">
+
+        <button appLoginAndRegister mat-button (click)="moveTo('login')" class="mr-2">
             <mat-icon class="colorRightMenu">exit_to_app</mat-icon>
             <span class="colorRightMenu">Login</span>
           </button>
 
-          <button appLoginAndRegister mat-button (click)="moveTo('register')">
+        <button appLoginAndRegister mat-button (click)="moveTo('register')">
           <mat-icon class="colorRightMenu">get_app</mat-icon>
           <span  class="colorRightMenu">Register</span>
           </button>
-      
-        </mat-toolbar-row>
+
+      </mat-toolbar-row>
     </mat-toolbar>
 
     <ng-content></ng-content>

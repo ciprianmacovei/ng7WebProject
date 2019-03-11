@@ -5,7 +5,6 @@ import { map } from 'rxjs/operators';
 import * as rxjs from 'rxjs';
 import {NestedTreeControl} from '@angular/cdk/tree';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
-import { Router } from '@angular/router';
 
 
 // tslint:disable-next-line:class-name
@@ -40,16 +39,13 @@ export class HomeComponent implements OnInit {
   treeControl = new NestedTreeControl<shortCourses>(node => node.children);
   dataSource = new MatTreeNestedDataSource<shortCourses>();
 
-  constructor(private breakpointObserver: BreakpointObserver, private route: Router) {
+  constructor(private breakpointObserver: BreakpointObserver) {
     this.dataSource.data = shotCoursesList;
   }
 
   ngOnInit() {
   }
 
-  moveTo(link){
-    this.route.navigate([link]);
-  }
 
 
   hasChild = (_: number, node: shortCourses) => !!node.children && node.children.length > 0;
