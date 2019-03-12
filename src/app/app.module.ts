@@ -25,6 +25,13 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { LoginAndRegisterDirective } from './Directives/login-and-register.directive';
 import { HeaderComponent } from './Components/header/header.component';
 import { CoursesComponent } from './Pages/courses/courses.component';
+import { CostComponent } from './Pages/cost/cost.component';
+import { EnrollPageComponent } from './Pages/enroll-page/enroll-page.component';
+import { StudentsComponent } from './Pages/students/students.component';
+import { AboutComponent } from './Pages/about/about.component';
+import { FooterComponent } from './Components/footer/footer.component';
+import { AdminComponent } from './Pages/admin/admin.component';
+import { PanelComponent } from './Pages/admin/panel/panel.component';
 
 
 
@@ -40,6 +47,13 @@ import { CoursesComponent } from './Pages/courses/courses.component';
     LoginAndRegisterDirective,
     HeaderComponent,
     CoursesComponent,
+    CostComponent,
+    EnrollPageComponent,
+    StudentsComponent,
+    AboutComponent,
+    FooterComponent,
+    AdminComponent,
+    PanelComponent,
   ],
   imports: [
     MatFormFieldModule,

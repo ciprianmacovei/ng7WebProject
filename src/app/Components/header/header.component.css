@@ -4,3 +4,7 @@
     align-self: center;
     align-items: center;
   }
+
+  mat-card {
+    top:0;
+  }

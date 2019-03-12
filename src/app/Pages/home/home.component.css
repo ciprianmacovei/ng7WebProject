@@ -26,7 +26,8 @@ mat-icon {
 }
 
 .buttomToolBar {
-  top:10rem;
+  top: 10vh;
+  bottom:0;
   position: relative;
 }
 
@@ -35,6 +36,8 @@ mat-icon {
   text-align: center;
   font-size: 1.4vh;
 }
+
+
 mat-toolbar-row{
   font-size:1.6vh;
 }

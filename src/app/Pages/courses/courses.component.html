@@ -1,1 +1,211 @@
 <app-header></app-header>
+
+<div fxLayout="row" fxLayoutAlign="center" style="margin-top:2%">
+    <mat-card fxFlex.gt-md="40">
+        <mat-card-header>
+            <mat-card-title>All Courses Overview</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                SAE Institute Bucharest offers practical and industry-relevant Diploma Studies in the fields of Audio Engineering and Animation
+                & Game Design. By completing one year at our Institute you will be awarded with a Diploma in the studied
+                area. This certificate is internationally acknowledged and guaranties a high educational standard.
+            </p>
+            <p>
+                Besides the diploma program SAE Bucharest also offers several short courses. All courses are focused on offering essential
+                and in detail informations on specific topics. Experienced lecturers will provide you with in depth knowledge
+                and practical training during all the course's duration
+            </p>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center" style="margin-top:2%">
+
+    <mat-expansion-panel fxFlex.gt-md="40" fxFlex.lt-lg="100" hideToggle #matPannel1>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Diplomas
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+            <mat-icon>{{matPannel1._expanded ? 'expand_more' : 'chevron_right'}}</mat-icon>
+        </mat-expansion-panel-header>
+
+
+        <mat-list-item>
+            <button mat-stroked-button color="primary">
+                <mat-icon>equalizer</mat-icon>
+                Audio Engineering Diploma
+            </button>
+            <div>
+                <p>
+                    Audio Engineering Diploma course offers students a study of all aspects of Audio Engineering and is designed to train future
+                    professionals for the audio industry.
+                </p>
+            </div>
+        </mat-list-item>
+
+        <mat-divider style="height: 10px;"></mat-divider>
+        <br>
+
+        <mat-list-item>
+            <button mat-stroked-button color="primary">
+                    <mat-icon>videogame_asset</mat-icon>
+                    Animation & Game Design Diploma
+            </button>
+            <div>
+                <p>Does animation mean more than just cartoons to you?<br> Are you quietly confident that computer animation
+                    will take the place of traditional film-making in your lifetime?<br> Does gaming mean more to you than
+                    just a pleasant means of spending your free time?</p>
+                <p>Then you should study Animation&Game Design at SAE Institute.</p>
+            </div>
+        </mat-list-item>
+
+    </mat-expansion-panel>
+</div>
+
+
+<div fxLayout="row" fxLayoutAlign="center" style="margin:2% 0 2% 0">
+
+    <mat-expansion-panel fxFlex.gt-md="40" fxFlex.lt-lg="100" hideToggle #matPannel2>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Short Courses
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+            <mat-icon>{{matPannel2._expanded ? 'expand_more' : 'chevron_right'}}</mat-icon>
+        </mat-expansion-panel-header>
+
+        <mat-list-item>
+            <button mat-stroked-button color="primary">
+                        <mat-icon>keyboard_voice</mat-icon>
+                        Live Sound Engineering
+                    </button>
+            <div>
+                <p>
+                    By the end of the SAE Certificate Course in Live Sound Engineering, students will understand the principles of sound (what
+                    it is, how it is made up, its means of measurement), acoustic and electronic instruments and the levels
+                    they create, as well as the equipment that can be used in a live performance (Mics, Mixers, Amplifiers,
+                    Speakers, Gates, Compressors, Effects Processors, Equalizers), Mixing desks, front of house and monitor
+                    mixing.
+                </p>
+                <p>
+                    Moreover, students will be introduced to various types of speaker systems – including setting up and their application, will
+                    learn how the equipment is connected together and the connections used and gain structure, EQ and signal
+                    routing.
+                </p>
+            </div>
+        </mat-list-item>
+
+        <mat-divider style="height: 10px;"></mat-divider>
+        <br>
+
+        <mat-list-item>
+            <button mat-stroked-button color="primary">
+                            <mat-icon>brush</mat-icon>
+                            Autodesk Maya
+                    </button>
+            <div>
+                <p>The students that will attend this course will be sure to notice progress and a substantial improvement in
+                    their workflow with Maya in just under 6 weeks. Our goal is to offer the best knowledge in the field
+                    and put them to fruition in a very short term. You will learn by doing, and you will learn from professional
+                    figures in the creative media domain. A solid theory & practical application is the key to mastering
+                    these skills.
+                </p>
+            </div>
+        </mat-list-item>
+
+        <mat-divider style="height: 10px;"></mat-divider>
+        <br>
+
+        <mat-list-item>
+            <button mat-stroked-button color="primary">
+                            <mat-icon>settings_input_component</mat-icon>
+                            Secrets of Mixing
+                    </button>
+            <div>
+                <p>With mixing tips and tricks that are used by some of the top names in the industry, this short course is
+                    invaluable for anyone looking to get the most out of their music. Upon completion of the course, students
+                    will know what mixing is, when to start mixing, what the different mixing approaches are and what consequences
+                    they have on the final product. Obviously, students will be taken all the way through the Dry Mix and
+                    Wet Mix and will have a full plate of Tips & Tricks from the Pros.
+                </p>
+            </div>
+        </mat-list-item>
+
+        <mat-divider style="height: 10px;"></mat-divider>
+        <br>
+
+        <mat-list-item>
+            <button mat-stroked-button color="primary">
+                            <mat-icon>settings_input_component</mat-icon>
+                            Electronic Music Production with Ableton Live
+                    </button>
+            <div>
+                <p>Students will learn everything they need to know in order to write, design, produce and provide structure
+                    for an electronic music track. Upon the completion of this course, students will: have working knowledge
+                    of Ableton Live's Session and Arrangement views, devices and typical routing paths; be able to sample
+                    and synthesize to create new sounds with a musical purpose; be able to layer together audio elements
+                    to create a full song; know the basic workings of digital audio, sound synthesis and audio mixing.
+                </p>
+            </div>
+        </mat-list-item>
+
+        <mat-divider style="height: 10px;"></mat-divider>
+        <br>
+
+        <mat-list-item>
+            <button mat-stroked-button color="primary">
+                            <mat-icon>brush</mat-icon>
+                            Photoshop CC
+                    </button>
+            <div>
+                <p>Even if you've never worked with images on your computer, you may have heard of Photoshop. Available for
+                    both Windows and Mac, Adobe Photoshop is an extremely powerful application that's used by many professional
+                    photographers and designers. You can use Photoshop for almost any kind of image editing, such as touching
+                    up photos, creating high-quality graphics, and much, much more.
+                </p>
+            </div>
+        </mat-list-item>
+
+        <mat-divider style="height: 10px;"></mat-divider>
+        <br>
+
+        <mat-list-item>
+            <button mat-stroked-button color="primary">
+                            <mat-icon>keyboard_voice</mat-icon>
+                            Human Anatomy 3D - Zbrush
+                    </button>
+            <div>
+                <p>
+                    Being able to model the human condition correctly is an art. However, there are some tricks and tips to get easier performance.
+                    <br> All work becomes easier when, instead of traditional modeling, using modern techniques and programs
+                    in 3D.
+                </p>
+            </div>
+        </mat-list-item>
+
+        <mat-divider style="height: 10px;"></mat-divider>
+        <br>
+
+        <mat-list-item>
+            <button mat-stroked-button color="primary">
+                            <mat-icon>keyboard_voice</mat-icon>
+                            Introduction to Zbrush
+                    </button>
+            <div>
+                <p>
+                    Zbrush was and still one of the most used program to model characters and adding details to your basic 3D objects, helping
+                    you to save tons of hours trying to add those details in your traditional 3D program.
+                </p>
+            </div>
+        </mat-list-item>
+
+
+
+    </mat-expansion-panel>
+</div>
+
+<app-footer [className]="matPannel2._expanded ? 'buttomToolBarActive' : 'buttomToolBar' "></app-footer>

@@ -1,0 +1,25 @@
+.centerItems {
+    display:flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+  }
+
+  .buttomToolBar {
+    /* top: calc(100vh - 3em); */
+    bottom:0;
+    position: absolute;
+    /* bottom:0; */
+    /* position: absolute; */
+  }
+
+  .buttomToolBarActive {
+    position:relative;
+    bottom:0;
+  }
+  
+  .title-center {
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 1.4vh;
+  }

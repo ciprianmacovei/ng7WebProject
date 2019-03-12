@@ -24,13 +24,13 @@
       </mat-menu>
       <mat-menu></mat-menu> -->
 
-      <button mat-menu-item>
+      <button mat-menu-item (click)="moveTo('cost')">
         <mat-icon>date_range</mat-icon><span>Cost & Dates</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="moveTo('enroll-page')">
         <mat-icon>accessibility</mat-icon><span>Enroll</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="moveTo('students')">
         <mat-icon>people</mat-icon><span>Students</span>
       </button>
       <button mat-menu-item>
@@ -83,9 +83,13 @@
       </mat-toolbar-row>
     </mat-toolbar>
 
-    <ng-content></ng-content>
 
 
+      <ng-content></ng-content>
+
+
+     
+  
   </mat-sidenav-content>
 
 

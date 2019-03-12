@@ -1,7 +1,6 @@
 <app-header></app-header>
 
-
-<div fxLayout="row" fxLayoutAlign="center"  class="marginTop">
+<div fxLayout="row" fxLayoutAlign="center" class="marginTop">
   <div fxLayout="column" fxLayoutGap.lt-sm="3px" fxLayoutGap.gt-sm="1vh">
     <div fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutGap.lt-sm="3px" fxLayoutGap.gt-sm="1vh">
       <mat-card>
@@ -65,7 +64,7 @@
   </div>
 </div>
 
-<div class="marginTop" fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutAlign="center" fxLayoutGap.gt-md="4rem" fxLayoutGap.md="2rem"
+<div class="marginTop" fxLayout.gt-sm="row wrap" fxLayout.lt-md="column" fxLayoutAlign="center" fxLayoutGap.gt-md="4rem" fxLayoutGap.md="2rem"
   fxLayoutGap.sm="1rem">
   <mat-card fxFlex.gt-md="22.5" fxFlex.lt-lg="30">
     <mat-card-header>
@@ -116,6 +115,7 @@
       <button mat-raised-button color="primary">Read More</button>
     </mat-card-actions>
   </mat-card>
+  
 </div>
 
 
@@ -185,6 +185,6 @@
   </mat-card>
 </div>
 
-<mat-toolbar color="warm" class="buttomToolBar">
-  <p class="title-center">© SAE Institute 2015. All rights reserved. Privacy Policy Terms and Conditions</p>
-</mat-toolbar>
+
+<app-footer [className]="'buttomToolBarActive'"></app-footer>
+

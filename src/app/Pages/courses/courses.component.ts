@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-courses',
@@ -10,6 +11,10 @@ export class CoursesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  asta(asta: ElementRef) {
+    console.log(asta);
   }
 
 }
