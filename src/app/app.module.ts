@@ -8,6 +8,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'; 
+//services
+import { AuthentificationService } from './Services/authentification.service';
 
 // Angular Material
 import { MaterialModule } from './material';
@@ -64,9 +67,10 @@ import { PanelComponent } from './Pages/admin/panel/panel.component';
     ReactiveFormsModule,
     LayoutModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthentificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

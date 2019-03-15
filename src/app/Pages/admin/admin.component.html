@@ -1,3 +1,25 @@
-<p>
-  admin works!
-</p>
+<div fxLayout="row" fxLayoutAlign="center" style="margin-top:15%">
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Login AdminPanel
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="login()" [formGroup]="loginForm">
+        <div fxLayout="column">
+          <mat-form-field>
+            <input matInput placeholder="Username" formControlName="username" type="text">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Password" formControlName="password" type="password">
+          </mat-form-field>
+          <div fxLayout="row" fxLayoutAlign="center">
+          <button type="submit" mat-button color="warn" [disabled]="!loginForm.valid">Login</button>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

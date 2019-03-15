@@ -33,7 +33,6 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'admin/panel', component: PanelComponent }
 
-  // {path: 'login', component:}
 
 ];
 
