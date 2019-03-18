@@ -4,13 +4,18 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <mat-menu></mat-menu>
-      <button mat-menu-item (click)="moveTo('home')">
+      <div *ngFor="let button of arrayOfMenuButtons">
+        <button mat-menu-item (click)="moveTo('button.link')">
+          <mat-icon>{{button.icon}}</mat-icon><span>{{button.name}}</span>
+        </button>
+      </div>
+      <!-- <button mat-menu-item (click)="moveTo('home')">
         <mat-icon>home</mat-icon><span>Home</span>
       </button>
 
       <button mat-menu-item (click)="moveTo('courses')"> 
         <mat-icon>library_books</mat-icon><span>Courses</span>
-      </button>
+      </button> -->
       <!-- [matMenuTriggerFor]="menu"  -->
       <!-- <mat-menu #menu="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
         <ng-template matMenuContent>
@@ -24,7 +29,7 @@
       </mat-menu>
       <mat-menu></mat-menu> -->
 
-      <button mat-menu-item (click)="moveTo('cost')">
+      <!-- <button mat-menu-item (click)="moveTo('cost')">
         <mat-icon>date_range</mat-icon><span>Cost & Dates</span>
       </button>
       <button mat-menu-item (click)="moveTo('enroll-page')">
@@ -33,7 +38,7 @@
       <button mat-menu-item (click)="moveTo('students')">
         <mat-icon>people</mat-icon><span>Students</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="moveTo('contact')">
         <mat-icon>contact_support</mat-icon><span>About Us</span>
       </button>
       <button mat-menu-item>
@@ -44,7 +49,7 @@
       </button>
       <button mat-menu-item>
         <mat-icon>perm_contact_calendar</mat-icon><span>Contact</span>
-      </button>
+      </button> -->
 
 
       <div class="socialMedia">

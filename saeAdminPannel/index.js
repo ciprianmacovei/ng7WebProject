@@ -13,7 +13,9 @@ var db = mongoose.connection;
 app.use(bodyParser.urlencoded({
    extended: true
  }));
+
 app.use(bodyParser.json());
+
 app.use(function(req, res, next) {
    res.header("Access-Control-Allow-Origin", "*");
    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -40,7 +42,6 @@ app.get('/', function (req, res) {
 
 //LOGIN ADMIN PANEL
 
-
 app.post('/adminLogin', function(req,res) {
 
    console.log(req.body);
@@ -60,6 +61,20 @@ app.post('/adminLogin', function(req,res) {
       }
    });
 
+})
+
+
+
+
+//GET MENU LINKS
+
+app.get('/getMenuItems', function(req,res) {
+   model.saeMenu.find({},function(err,array) {
+      if (err) throw err;
+      else {
+         res.send(array);
+      }
+   });
 })
 
 
