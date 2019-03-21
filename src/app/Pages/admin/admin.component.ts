@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthentificationService } from 'src/app/Services/authentification.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
@@ -13,7 +13,7 @@ export class AdminComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private auth: AuthentificationService, private route: Router, private snackBar: MatSnackBar) { }
+  constructor(private auth: AuthentificationService, private route: Router, private snackBar: MatSnackBar, private thisroute: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -26,8 +26,7 @@ export class AdminComponent implements OnInit {
   login() {
     this.auth.adminLogin(this.loginForm.value.username, this.loginForm.value.password)
       .then(res => {
-        console.log(res);
-        if (res[Object.keys(res)[0]] === true) {
+        if (res !== null) {
           this.snackBar.open('Login Succefully', 'Login', {
             duration: 1000,
             verticalPosition: 'top',
@@ -35,7 +34,7 @@ export class AdminComponent implements OnInit {
             panelClass: 'pannelSuccess'
           });
 
-          this.route.navigate(['/admin/panel'])
+          this.route.navigate(['/adminPanel']);
 
         } else {
           this.snackBar.open('Login Error', 'Login', {

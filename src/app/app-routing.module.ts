@@ -14,6 +14,8 @@ import { StudentsComponent } from 'src/app/Pages/students/students.component';
 import { AboutComponent } from 'src/app/Pages/about/about.component';
 import { AdminComponent } from 'src/app/Pages/admin/admin.component';
 import { PanelComponent } from './Pages/admin/panel/panel.component';
+import { ChangemenuComponent } from './Pages/admin/changemenu/changemenu.component';
+import { AdminLoginService } from './Guards/admin-login.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -31,7 +33,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'admin/panel', component: PanelComponent }
+  { path: 'adminPanel', component: PanelComponent, canActivate:[AdminLoginService], children: [
+    {path: 'menu', component: ChangemenuComponent }
+  ] }
 
 
 ];

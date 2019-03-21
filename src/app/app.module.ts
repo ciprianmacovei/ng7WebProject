@@ -35,6 +35,9 @@ import { AboutComponent } from './Pages/about/about.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { AdminComponent } from './Pages/admin/admin.component';
 import { PanelComponent } from './Pages/admin/panel/panel.component';
+import { ChangemenuComponent } from './Pages/admin/changemenu/changemenu.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -57,6 +60,7 @@ import { PanelComponent } from './Pages/admin/panel/panel.component';
     FooterComponent,
     AdminComponent,
     PanelComponent,
+    ChangemenuComponent,
   ],
   imports: [
     MatFormFieldModule,
@@ -68,7 +72,8 @@ import { PanelComponent } from './Pages/admin/panel/panel.component';
     LayoutModule,
     FormsModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [AuthentificationService],
   bootstrap: [AppComponent]

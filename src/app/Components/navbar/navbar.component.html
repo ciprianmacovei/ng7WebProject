@@ -5,7 +5,7 @@
     <mat-nav-list>
       <mat-menu></mat-menu>
       <div *ngFor="let button of arrayOfMenuButtons">
-        <button mat-menu-item (click)="moveTo('button.link')">
+        <button mat-menu-item (click)="moveTo(button.link)">
           <mat-icon>{{button.icon}}</mat-icon><span>{{button.name}}</span>
         </button>
       </div>

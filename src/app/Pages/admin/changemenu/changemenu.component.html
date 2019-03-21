@@ -1,0 +1,66 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Add Menu Buttons</mat-card-title>
+  </mat-card-header>
+
+    <div fxLayout="column">
+      <mat-form-field>
+        <input matInput placeholder="Button Name" #btnName>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Button Icon" #btnIcon>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Button Link" #btnLink>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center">
+      <button mat-raised-button color="primary" type="submit" (click)="saveButton(btnName.value,btnIcon.value,btnLink.value)">Save Button</button>
+    </div>
+
+</mat-card>
+
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Buttons shown in menu
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngFor="let x of arrayOfMenuButtons; let i = index" fxLayout="column" style="margin-top:2vh;width: 100%">
+      <div fxLayout="row">
+        <div>
+          <button mat-raised-button>{{x.name}}</button>
+        </div>
+        <div fxFlex="1 1 auto">
+          <mat-icon>{{x.icon}}</mat-icon>
+        </div>
+        <div>
+          <button mat-raised-button color="primary" (click)="deleteButton(x.name,i)">Delete</button>
+          <button mat-raised-button color="warn" (click)="edit(i)">Edit</button>
+        </div>
+      </div>
+      <div fxLayout="column" *ngIf="selectedEditButton === i">
+        
+        <div fxLayout="row" style="margin-top:4px;">
+        <mat-form-field>
+          <input matInput placeholder="Button Name">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Button Icon">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Button Link">
+        </mat-form-field>
+      </div>
+        <div fxLayout="row" >
+        <button mat-raised-button color="warn">Save</button>
+        <button mat-raised-button color="warm" (click)="selectedEditButton = null">Cancel</button>
+      </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

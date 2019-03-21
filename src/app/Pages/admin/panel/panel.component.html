@@ -3,18 +3,27 @@
   <mat-icon>more_vert</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>
+  <a mat-menu-item [routerLink]="['menu']" routerLinkActive="router-link-active" >
     <mat-icon>dialpad</mat-icon>
     <span>Change Menu</span>
-  </button>
-  <button mat-menu-item disabled>
+  </a>
+  <a mat-menu-item >
     <mat-icon>voicemail</mat-icon>
     <span>Check voicemail</span>
-  </button>
-  <button mat-menu-item>
+  </a>
+  <a mat-menu-item>
     <mat-icon>notifications_off</mat-icon>
     <span>Disable alerts</span>
-  </button>
+  </a>
+  <a mat-menu-item (click)="logOut()">
+    <mat-icon>notifications_off</mat-icon>
+    <span>Log Out</span>
+  </a>
 </mat-menu>
 
 </mat-card>
+
+<div fxLayout="row" fxLayoutAlign="center" >
+  <router-outlet></router-outlet>
+</div>
+
