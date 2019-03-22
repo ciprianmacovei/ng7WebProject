@@ -30,14 +30,15 @@ app.use(function (req, res, next) {
 
 app.get('/', function (req, res) {
   res.send('Hello World');
-  var newAdmin = new model.admin({
-    username: 'cipriann',
-    password: 'cacat'
+  var newAdmin = new model.cards({
+    title:'Workshop Ableton Live 10',
+    imgUrl:'https://bucharest.sae.edu/media_thumbs/Bucharest/Gallery/55169_site_config_320x175.jpg',
+    content:'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.'
   })
 
   newAdmin.save(function (err, newadmin) {
     if (err) console.error(err);
-    else console.log(newAdmin.username, " has been added");
+    else console.log(newAdmin.title, " has been added");
   })
 })
 
@@ -63,6 +64,24 @@ app.post('/adminLogin', function (req, res) {
 
 })
 
+
+//UPDATE BUTTON
+
+
+app.post('/updateButton', function (req, res) {
+  console.log(req.body);
+  let updateName = req.body.updateName;
+  let name = req.body.name;
+  let icon = req.body.icon;
+  let link = req.body.link;
+
+  model.saeMenu.findOneAndUpdate({ 'name': updateName }, { 'name': name, 'icon': icon, 'link': link }, function (err, update) {
+    if (err) throw err;
+    else {
+      res.send(update);
+    }
+  })
+})
 
 
 
@@ -96,7 +115,7 @@ app.post('/deleteButton', function (req, res) {
 })
 
 
-//GET MENU LINKS
+//GET MENU BUTTONS
 
 app.get('/getMenuItems', function (req, res) {
   model.saeMenu.find({}, function (err, array) {

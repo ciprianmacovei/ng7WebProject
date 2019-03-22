@@ -16,6 +16,11 @@ import { AdminComponent } from 'src/app/Pages/admin/admin.component';
 import { PanelComponent } from './Pages/admin/panel/panel.component';
 import { ChangemenuComponent } from './Pages/admin/changemenu/changemenu.component';
 import { AdminLoginService } from './Guards/admin-login.service';
+import { ChangehomepageComponent } from './Pages/admin/changehomepage/changehomepage.component';
+import { CardsComponent } from './Pages/admin/changehomepage/cards/cards.component';
+import { DiplomasComponent } from './Pages/admin/changehomepage/diplomas/diplomas.component';
+import { NewsComponent } from './Pages/admin/changehomepage/news/news.component';
+import { LocationComponent } from './Pages/admin/changehomepage/location/location.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -33,9 +38,19 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'adminPanel', component: PanelComponent, canActivate:[AdminLoginService], children: [
-    {path: 'menu', component: ChangemenuComponent }
-  ] }
+  {
+    path: 'adminPanel', component: PanelComponent, canActivate: [AdminLoginService], children: [
+      { path: 'menu', component: ChangemenuComponent },
+      {
+        path: 'home', component: ChangehomepageComponent, children: [
+          { path: 'diplomas', component:DiplomasComponent},
+          { path: 'cards', component:CardsComponent },
+          { path: 'news', component:NewsComponent },
+          { path: 'location', component:LocationComponent }
+        ]
+      }
+    ]
+  }
 
 
 ];

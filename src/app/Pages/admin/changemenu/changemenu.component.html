@@ -47,17 +47,17 @@
         
         <div fxLayout="row" style="margin-top:4px;">
         <mat-form-field>
-          <input matInput placeholder="Button Name">
+          <input matInput placeholder="Button Name" #name>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Button Icon">
+          <input matInput placeholder="Button Icon" #icon>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Button Link">
+          <input matInput placeholder="Button Link" #link>
         </mat-form-field>
       </div>
         <div fxLayout="row" >
-        <button mat-raised-button color="warn">Save</button>
+        <button mat-raised-button color="warn" (click)="updateButton(name.value,icon.value,link.value,x.name,i)">Save</button>
         <button mat-raised-button color="warm" (click)="selectedEditButton = null">Cancel</button>
       </div>
       </div>

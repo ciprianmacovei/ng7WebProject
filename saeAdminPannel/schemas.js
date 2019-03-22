@@ -34,9 +34,17 @@ var saeMenu = mongoose.model('saeMenu',saeMenuSchema);
 
 
 var cardsSchema = new Schema({
-    title: String,
-    imgUrl: String,
-    content: String
+    title: {
+        type:String,
+        required: true
+    },
+    imgUrl: {
+        type:String,
+    },
+    content: {
+        type:String,
+        required: true
+    }
 })
 
 var cards = mongoose.model('cards',cardsSchema);

@@ -7,9 +7,9 @@
     <mat-icon>dialpad</mat-icon>
     <span>Change Menu</span>
   </a>
-  <a mat-menu-item >
+  <a mat-menu-item [routerLink]="['home']">
     <mat-icon>voicemail</mat-icon>
-    <span>Check voicemail</span>
+    <span>Home Page</span>
   </a>
   <a mat-menu-item>
     <mat-icon>notifications_off</mat-icon>
@@ -23,7 +23,7 @@
 
 </mat-card>
 
-<div fxLayout="row" fxLayoutAlign="center" >
+<div fxLayout="row" fxLayoutAlign="center">
   <router-outlet></router-outlet>
 </div>
 

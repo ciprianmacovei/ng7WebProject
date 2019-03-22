@@ -38,6 +38,11 @@ import { PanelComponent } from './Pages/admin/panel/panel.component';
 import { ChangemenuComponent } from './Pages/admin/changemenu/changemenu.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ChangehomepageComponent } from './Pages/admin/changehomepage/changehomepage.component';
+import { DiplomasComponent } from './Pages/admin/changehomepage/diplomas/diplomas.component';
+import { CardsComponent } from './Pages/admin/changehomepage/cards/cards.component';
+import { NewsComponent } from './Pages/admin/changehomepage/news/news.component';
+import { LocationComponent } from './Pages/admin/changehomepage/location/location.component';
 
 
 
@@ -61,6 +66,11 @@ import { environment } from '../environments/environment';
     AdminComponent,
     PanelComponent,
     ChangemenuComponent,
+    ChangehomepageComponent,
+    DiplomasComponent,
+    CardsComponent,
+    NewsComponent,
+    LocationComponent,
   ],
   imports: [
     MatFormFieldModule,

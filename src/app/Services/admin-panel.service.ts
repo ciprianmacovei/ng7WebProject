@@ -21,6 +21,20 @@ export class AdminPanelService implements OnInit {
 
   // REQUEST TO DB START
 
+  updateButton(obj:Object) {
+    const promise = new Promise( (rez,rej) => {
+      this.http.post('http://localhost:8081/updateButton',obj,{headers:this.headers})
+        .subscribe( res => {
+          rez(res);
+        }, error => {
+          console.log(error);
+        })
+    })
+
+    return promise;
+  }
+
+
   getMenuItems() {
     const promise = new Promise((rez, rej) => {
       this.http.get('http://localhost:8081/getMenuItems', { headers: this.headers })

@@ -17,6 +17,14 @@ export class ChangemenuComponent implements OnInit {
     this.getMenuItems();
   }
 
+  updateButton(name:string, icon:string, link:string, updateName:string, index:number){
+    let obj = { name, icon, link, updateName };
+    this.arrayOfMenuButtons[index] = { name, icon, link };
+    this.admin.updateButton(obj);
+    this.selectedEditButton = null;
+     
+  }
+
   deleteButton(name:string,index:number){
     this.arrayOfMenuButtons.splice(index,1);
     this.admin.deleteButton(name)
