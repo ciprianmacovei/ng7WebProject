@@ -1,0 +1,12 @@
+mat-card {
+    width:400px;
+    margin-top:2%;
+}
+
+mat-form-field {
+    width:100%;
+}
+
+.hideEditDisplay {
+    visibility: hidden;
+}

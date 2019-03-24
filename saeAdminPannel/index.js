@@ -31,9 +31,9 @@ app.use(function (req, res, next) {
 app.get('/', function (req, res) {
   res.send('Hello World');
   var newAdmin = new model.cards({
-    title:'Workshop Ableton Live 10',
-    imgUrl:'https://bucharest.sae.edu/media_thumbs/Bucharest/Gallery/55169_site_config_320x175.jpg',
-    content:'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.'
+    title: 'Workshop Ableton Live 10',
+    imgUrl: 'https://bucharest.sae.edu/media_thumbs/Bucharest/Gallery/55169_site_config_320x175.jpg',
+    content: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.'
   })
 
   newAdmin.save(function (err, newadmin) {
@@ -42,6 +42,32 @@ app.get('/', function (req, res) {
   })
 })
 
+
+
+
+
+// @@@@@@@@@@@@@@@ CARDS HOMEPAGE @@@@@@@@@@@@@@@@@
+app.get('/getCards', function (req, res) {
+  model.cards.find({}, function (err, cards) {
+    if (err) throw err;
+    else {
+      res.send(cards);
+    }
+  })
+})
+
+
+
+
+// @@@@@@@@@@@@@@@ CARDS HOMEPAGE @@@@@@@@@@@@@@@@@
+
+
+
+
+
+
+
+// @@@@@@@@@@@@@@@ BUTOONS MENU START @@@@@@@@@@@@@@@@@
 
 //LOGIN ADMIN PANEL
 
@@ -75,7 +101,13 @@ app.post('/updateButton', function (req, res) {
   let icon = req.body.icon;
   let link = req.body.link;
 
-  model.saeMenu.findOneAndUpdate({ 'name': updateName }, { 'name': name, 'icon': icon, 'link': link }, function (err, update) {
+  model.saeMenu.findOneAndUpdate({
+    'name': updateName
+  }, {
+    'name': name,
+    'icon': icon,
+    'link': link
+  }, function (err, update) {
     if (err) throw err;
     else {
       res.send(update);
@@ -126,6 +158,7 @@ app.get('/getMenuItems', function (req, res) {
   });
 })
 
+// @@@@@@@@@@@@@@@ BUTOONS MENU END @@@@@@@@@@@@@@@@@
 
 
 

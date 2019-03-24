@@ -21,10 +21,24 @@ export class AdminPanelService implements OnInit {
 
   // REQUEST TO DB START
 
-  updateButton(obj:Object) {
-    const promise = new Promise( (rez,rej) => {
-      this.http.post('http://localhost:8081/updateButton',obj,{headers:this.headers})
-        .subscribe( res => {
+  getCards() {
+    const promise = new Promise((rez, rej) => {
+      this.http.get('http://localhost:8081/getCards', { headers: this.headers })
+        .subscribe(res => {
+          rez(res)
+        }, error => {
+          console.log(error);
+        })
+    })
+
+    return promise;
+  }
+
+
+  updateButton(obj: Object) {
+    const promise = new Promise((rez, rej) => {
+      this.http.post('http://localhost:8081/updateButton', obj, { headers: this.headers })
+        .subscribe(res => {
           rez(res);
         }, error => {
           console.log(error);
@@ -51,10 +65,10 @@ export class AdminPanelService implements OnInit {
   }
 
 
-  deleteButton(nume:string) {
-    const promise = new Promise( (rez,rej) => {
-      this.http.post('http://localhost:8081/deleteButton',{nume},{headers:this.headers})
-        .subscribe( res => {
+  deleteButton(nume: string) {
+    const promise = new Promise((rez, rej) => {
+      this.http.post('http://localhost:8081/deleteButton', { nume }, { headers: this.headers })
+        .subscribe(res => {
           rez(res);
         }, error => {
           console.log(error);
