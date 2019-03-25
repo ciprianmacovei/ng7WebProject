@@ -1,39 +1,63 @@
-
-  
-
-<div fxLayout="row wrap" fxLayoutGap="10px">
-    <mat-card *ngFor="let card of arrayCards">
-      <form>
-    
-            <mat-form-field>
-                <input matInput placeholder="Card Title" [value]="card.title" [disabled]="editModeDisabled !== i"> 
-              </mat-form-field>
-
-              <img mat-card-image [src]="card.imgUrl">
-
-              <mat-card-content>
-
-            <mat-form-field>
-                <input matInput placeholder="Image Url" [value]="card.imgUrl" [disabled]="editModeDisabled !== i">
-              </mat-form-field>
-
-              <mat-form-field class="example-full-width">
-                  <textarea matInput placeholder="Card Content" [disabled]="editModeDisabled !== i"> {{card.content}}</textarea>
-              </mat-form-field>
-
-              </mat-card-content>
-       
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Add Cards To HomePage
+      </mat-card-title>
+    </mat-card-header>
+    <form (ngSubmit)="addCard(card)" #card="ngForm">
+      <mat-card-content>
+        <div fxLayout="column">
+          <mat-form-field>
+            <input matInput placeholder="Title" ngModel name="title">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Imange Path" ngModel name="imgUrl">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Card Content" ngModel name="content">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
       <mat-card-actions>
-        <button mat-button color="accent" (click)="edit(show)">Edit</button>
-        <button mat-button color="warn">Delete</button>
-
-        
+        <div fxLayout="row" fxLayoutAlign="center">
+          <button mat-fab color="accent" type="submit">Add</button>
+        </div>
       </mat-card-actions>
-      <div #show class="hideEditDisplay" fxLayoutAlign="center">
-        <button>Save</button>
-        <button (click)="cancelEdit(show)">Cancel</button>
-      </div>
     </form>
-    </mat-card>
+  </mat-card>
 </div>
 
+<div fxLayout="row wrap" fxLayoutGap="10px" style="margin-bottom:5%;">
+  <mat-card *ngFor="let card of arrayCards;let i = index">
+
+      <mat-form-field>
+        <input matInput placeholder="Card Title" [(ngModel)]="card.title" [disabled]="editModeDisabled !== i">
+      </mat-form-field>
+
+      <img mat-card-image [src]="card.imgUrl">
+
+      <mat-card-content>
+
+        <mat-form-field>
+          <input matInput placeholder="Image Url" [(ngModel)]="card.imgUrl" [disabled]="editModeDisabled !== i">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Card Content" [(ngModel)]="card.content" [disabled]="editModeDisabled !== i" ></textarea>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="accent" (click)="editCard(i)" type="button">Edit</button>
+        <button mat-raised-button color="warn" (click)="deleteCard(i)" type="button">Delete</button>
+
+
+      </mat-card-actions>
+      <div [ngStyle]="{'visibility': editModeDisabled === i ? 'visible' : 'hidden'}" fxLayoutAlign="center">
+        <button mat-raised-button  color="primary" type="submit" (click)="saveEdit(i)">Save</button>
+        <button mat-raised-button  color="accent" (click)="cancelEdit()" type="button">Cancel</button>
+      </div>
+  </mat-card>
+</div>

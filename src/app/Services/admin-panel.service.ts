@@ -21,6 +21,48 @@ export class AdminPanelService implements OnInit {
 
   // REQUEST TO DB START
 
+  updateCard(obj) {
+    const promise = new Promise( (rez,rej) => {
+      this.http.post('http://localhost:8081/updateCard',obj,{headers:this.headers})
+        .subscribe( res => {
+          rez(res);
+        }, error => {
+          console.log(error);
+        })
+    })
+
+    return promise;
+  }
+
+
+  deleteCard(obj){
+    const promise = new Promise( (rez,rej) => {
+      this.http.post('http://localhost:8081/deleteCard',obj,{headers:this.headers})
+        .subscribe( res => {
+          rez(res);
+        }, error => {
+          console.log(error);
+        })
+    })
+
+    return promise;
+  }
+
+
+  addCard(obj) {
+    const promise = new Promise( (rez,rej) => {
+      this.http.post('http://localhost:8081/addCards',obj,{headers:this.headers})
+        .subscribe( res => {
+          rez(res);
+        }, error => {
+          console.log(error);
+        })
+    })
+
+    return promise;
+  }
+
+
   getCards() {
     const promise = new Promise((rez, rej) => {
       this.http.get('http://localhost:8081/getCards', { headers: this.headers })

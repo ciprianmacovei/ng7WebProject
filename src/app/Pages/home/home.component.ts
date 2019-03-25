@@ -3,14 +3,21 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as rxjs from 'rxjs';
-import {NestedTreeControl} from '@angular/cdk/tree';
-import {MatTreeNestedDataSource} from '@angular/material/tree';
+import { NestedTreeControl } from '@angular/cdk/tree';
+import { MatTreeNestedDataSource } from '@angular/material/tree';
+import { AdminPanelService } from 'src/app/Services/admin-panel.service';
 
 
 // tslint:disable-next-line:class-name
 interface shortCourses {
   name: string;
   children?: shortCourses[];
+}
+
+interface card {
+  title: string;
+  imgUrl: string;
+  content: string;
 }
 
 const shotCoursesList: shortCourses[] = [
@@ -26,6 +33,8 @@ const shotCoursesList: shortCourses[] = [
 
 
 
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -37,11 +46,18 @@ export class HomeComponent implements OnInit {
   treeControl = new NestedTreeControl<shortCourses>(node => node.children);
   dataSource = new MatTreeNestedDataSource<shortCourses>();
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  cardArray: card[];
+
+  constructor(private breakpointObserver: BreakpointObserver, private admin: AdminPanelService) {
     this.dataSource.data = shotCoursesList;
   }
 
   ngOnInit() {
+
+    this.admin.getCards()
+      .then((res: card[]) => {
+        this.cardArray = res;
+      })
 
   }
 

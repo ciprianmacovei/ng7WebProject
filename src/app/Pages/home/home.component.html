@@ -3,6 +3,7 @@
 <div fxLayout="row" fxLayoutAlign="center" class="marginTop">
   <div fxLayout="column" fxLayoutGap.lt-sm="3px" fxLayoutGap.gt-sm="1vh">
     <div fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutGap.lt-sm="3px" fxLayoutGap.gt-sm="1vh">
+
       <mat-card>
         <mat-card-content class="centerItems">
           <mat-icon>settings_input_component</mat-icon>
@@ -64,58 +65,19 @@
   </div>
 </div>
 
-<div class="marginTop" fxLayout.gt-sm="row wrap" fxLayout.lt-md="column" fxLayoutAlign="center" fxLayoutGap.gt-md="4rem" fxLayoutGap.md="2rem"
-  fxLayoutGap.sm="1rem">
-  <mat-card fxFlex.gt-md="22.5" fxFlex.lt-lg="30">
+<div class="marginTop" fxLayout.gt-sm="row wrap" fxLayout.lt-md="column" fxLayoutAlign="center">
+  <mat-card fxFlex.gt-md="22.5" fxFlex.md="30" fxFlex.lt-md="100" *ngFor="let card of cardArray" style="margin:1em;">
     <mat-card-header>
-      <mat-card-title [class.matCardTitle]="(isHandset$ | async)">WorkShop Live Sound</mat-card-title>
+      <mat-card-title [class.matCardTitle]="(isHandset$ | async)">{{card.title}}</mat-card-title>
     </mat-card-header>
-    <img mat-card-image src="https://bucharest.sae.edu/media_thumbs/Images/54593_p_320x175.jpg" alt="Photo of a Shiba Inu">
+    <img mat-card-image [src]="card.imgUrl" alt="Photo of a Shiba Inu">
     <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
-        very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-      </p>
+      <p>{{card.content}}</p>
     </mat-card-content>
     <mat-card-actions class="centerItems">
       <button mat-raised-button color="primary">Read More</button>
     </mat-card-actions>
   </mat-card>
-
-  <mat-card fxFlex.gt-md="22.5" fxFlex.lt-lg="30">
-    <mat-card-header>
-      <mat-card-title [class.matCardTitle]="(isHandset$ | async)">Workshop Ableton Live 10</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="https://bucharest.sae.edu/media_thumbs/Bucharest/News/55550_Workshop_Ableton_live_10_320x175.png"
-      alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
-        very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions class="centerItems">
-      <button mat-raised-button color="primary">Read More</button>
-    </mat-card-actions>
-  </mat-card>
-
-
-  <mat-card fxFlex.gt-md="22.5" fxFlex.lt-lg="30">
-    <mat-card-header>
-      <mat-card-title [class.matCardTitle]="(isHandset$ | async)">Workshop Ableton Live 10</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="https://bucharest.sae.edu/media_thumbs/Bucharest/Gallery/55169_site_config_320x175.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
-        very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions class="centerItems">
-      <button mat-raised-button color="primary">Read More</button>
-    </mat-card-actions>
-  </mat-card>
-  
 </div>
 
 
@@ -142,11 +104,10 @@
         <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
           <li>
             <div class="mat-tree-node">
-              <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.name">
-              <mat-icon class="mat-icon-rtl-mirror">
-                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-              </mat-icon>
-            </button> {{node.name}}
+                <mat-icon class="mat-icon-rtl-mirror" matTreeNodeToggle style="cursor:pointer">
+                  {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                </mat-icon>
+              {{node.name}}
             </div>
             <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
               <ng-container matTreeNodeOutlet></ng-container>
@@ -187,4 +148,3 @@
 
 
 <app-footer [className]="'buttomToolBarActive'"></app-footer>
-

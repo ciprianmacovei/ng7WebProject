@@ -47,6 +47,41 @@ app.get('/', function (req, res) {
 
 
 // @@@@@@@@@@@@@@@ CARDS HOMEPAGE @@@@@@@@@@@@@@@@@
+
+
+
+// UPDATE CARD
+
+app.post('/updateCard', function(req,res) {
+  let card = req.body;
+
+  model.cards.findOneAndUpdate( {'_id':card._id}, card,
+   function(err,update){
+     if (err) throw err;
+     else res.send(update);
+   })
+});
+
+// UPDATE CARD
+
+
+
+// DELETE CARD
+
+app.post('/deleteCard', function (req, res) {
+  let card = req.body;
+  model.cards.find({'title':card.title, 'imgUrl':card.imgUrl, 'content':card.content}, function(err,card){
+    if (err) throw err;
+    else res.send(card);
+  }).remove().exec();
+})
+
+// DELETE CARD
+
+
+
+// GET CARDS 
+
 app.get('/getCards', function (req, res) {
   model.cards.find({}, function (err, cards) {
     if (err) throw err;
@@ -56,6 +91,20 @@ app.get('/getCards', function (req, res) {
   })
 })
 
+// GET CARDS 
+
+
+// ADD CARD
+
+app.post('/addCards', function (req,res) {
+  let newCard = new model.cards(req.body)
+  newCard.save( function(err,card) {
+    if (err) throw err;
+    else console.log(card.title, ' has beed added');
+  })
+})
+
+// ADD CARD
 
 
 
