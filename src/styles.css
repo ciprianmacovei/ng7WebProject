@@ -6,9 +6,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 .pannelSuccess {
-    background-color:grey !important;
+    background-color:#626C66 !important;
 }
 
 .pannelError {
-    background-color: red !important;
+    background-color:#B30089 !important;
 }

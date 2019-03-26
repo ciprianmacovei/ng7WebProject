@@ -21,6 +21,7 @@ import { CardsComponent } from './Pages/admin/changehomepage/cards/cards.compone
 import { DiplomasComponent } from './Pages/admin/changehomepage/diplomas/diplomas.component';
 import { NewsComponent } from './Pages/admin/changehomepage/news/news.component';
 import { LocationComponent } from './Pages/admin/changehomepage/location/location.component';
+import { CandeactivateGuardService } from './Guards/candeactivate-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -35,8 +36,8 @@ const routes: Routes = [
       { path: 'about', component: AboutComponent }
     ]
   },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  // { path: 'login', component: LoginComponent },
+  // { path: 'register', component: RegisterComponent },
   { path: 'admin', component: AdminComponent },
   {
     path: 'adminPanel', component: PanelComponent, canActivate: [AdminLoginService], children: [
@@ -44,7 +45,7 @@ const routes: Routes = [
       {
         path: 'home', component: ChangehomepageComponent, children: [
           { path: 'diplomas', component:DiplomasComponent},
-          { path: 'cards', component:CardsComponent },
+          { path: 'cards', component:CardsComponent, canDeactivate:[CandeactivateGuardService]},
           { path: 'news', component:NewsComponent },
           { path: 'location', component:LocationComponent }
         ]

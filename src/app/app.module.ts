@@ -9,8 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; 
+
 //services
 import { AuthentificationService } from './Services/authentification.service';
+import { CandeactivateGuardService } from './Guards/candeactivate-guard.service';
 
 // Angular Material
 import { MaterialModule } from './material';
@@ -43,6 +45,7 @@ import { DiplomasComponent } from './Pages/admin/changehomepage/diplomas/diploma
 import { CardsComponent } from './Pages/admin/changehomepage/cards/cards.component';
 import { NewsComponent } from './Pages/admin/changehomepage/news/news.component';
 import { LocationComponent } from './Pages/admin/changehomepage/location/location.component';
+import { NotificationComponent } from './Components/notification/notification.component';
 
 
 
@@ -71,6 +74,7 @@ import { LocationComponent } from './Pages/admin/changehomepage/location/locatio
     CardsComponent,
     NewsComponent,
     LocationComponent,
+    NotificationComponent,
   ],
   imports: [
     MatFormFieldModule,
@@ -85,7 +89,7 @@ import { LocationComponent } from './Pages/admin/changehomepage/location/locatio
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [AuthentificationService],
+  providers: [AuthentificationService,CandeactivateGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
