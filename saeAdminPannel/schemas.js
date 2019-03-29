@@ -50,9 +50,16 @@ var cardsSchema = new Schema({
 var cards = mongoose.model('cards',cardsSchema);
 
 var diplomasSchema = new Schema({
-    titleButton: String,
-    iconButton: String,
-    content: String
+    titleButton: {
+        type:String,
+        required:true,
+        unique:true,
+        dropDups:true
+    },
+    iconButton: {
+        type:String,
+        required:true
+    }
 })
 
 var diplomas = mongoose.model('diplomas',diplomasSchema);

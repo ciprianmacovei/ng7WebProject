@@ -9,15 +9,20 @@ import { AdminPanelService } from 'src/app/Services/admin-panel.service';
 
 
 // tslint:disable-next-line:class-name
-interface shortCourses {
+export interface shortCourses {
   name: string;
   children?: shortCourses[];
 }
 
-interface card {
+export interface card {
   title: string;
   imgUrl: string;
   content: string;
+}
+
+export interface diplomas {
+  titleButton:string;
+  iconButton:string;
 }
 
 const shotCoursesList: shortCourses[] = [
@@ -47,6 +52,8 @@ export class HomeComponent implements OnInit {
   dataSource = new MatTreeNestedDataSource<shortCourses>();
 
   cardArray: card[];
+  diplomasArray: diplomas[];
+
 
   constructor(private breakpointObserver: BreakpointObserver, private admin: AdminPanelService) {
     this.dataSource.data = shotCoursesList;
@@ -54,11 +61,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-    this.admin.getCards()
+    this.admin.getItems('getCards')
       .then((res: card[]) => {
         this.cardArray = res;
       })
 
+    this.admin.getItems('getDiplomas')
+      .then( (res:diplomas[]) => {
+        this.diplomasArray = res;
+        console.log(res);
+      })
+    
   }
 
 

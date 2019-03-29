@@ -1,4 +1,4 @@
-<div *ngIf="show" [ngClass]="['snackbar-wrap',type]">
+<div *ngIf="show" @state [ngClass]="['snackbar-wrap',type]">
   <p class="snackbar-text">
     {{message}}
   </p>

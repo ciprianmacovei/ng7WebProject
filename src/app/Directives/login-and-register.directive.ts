@@ -5,7 +5,7 @@ import { Directive, HostListener, OnInit, HostBinding, Renderer2, ElementRef } f
 })
 export class LoginAndRegisterDirective implements OnInit {
 
-  @HostBinding('style.border') border: String = 'none';
+  @HostBinding('class.shadow') border: boolean = false;
 
   constructor(private render:Renderer2, private eleRef: ElementRef) { }
 
@@ -14,11 +14,12 @@ export class LoginAndRegisterDirective implements OnInit {
   }
 
   @HostListener('mouseenter') mouseenter (eventData: Event) {
-    this.border = '2px solid white';
+    
+    this.border = true;
   }
 
   @HostListener('mouseleave') mouseleave (eventData: Event) {
-    this.border = 'none';
+    this.border = false;
   }
 
 }

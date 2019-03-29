@@ -1,3 +1,59 @@
-<p>
-  diplomas works!
-</p>
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-card>
+    <mat-card-title>
+      <mat-card-header>
+        Add Diplomas
+      </mat-card-header>
+    </mat-card-title>
+    <form (ngSubmit)="addDisplomas(formD)" #formD="ngForm">
+      <mat-card-content>
+        <div fxLayout="column">
+          <mat-form-field>
+            <input matInput placeholder="Title" ngModel name="titleButton">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Icon name" ngModel name="iconButton">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div fxLayout="row" fxLayoutAlign="center">
+          <button mat-fab color="primary" type="submit">Add</button>
+        </div>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
+
+
+<div fxLayout="row wrap" fxLayoutAlign="center" style="margin:1em 0 1em 0">
+  <mat-card *ngFor="let diploma of arrayOfDiplomas; let i = index" style="margin:1em">
+
+    <mat-card-content>
+      <div fxLayout="column">
+        <mat-form-field>
+          <input matInput placeholder="Title" [(ngModel)]="diploma.titleButton" [disabled]="editMode !== i">
+        </mat-form-field>
+        <div fxLayout="row">
+          <mat-form-field>
+            <input matInput placeholder="Icon Name" [(ngModel)]="diploma.iconButton" [disabled]="editMode !== i">
+          </mat-form-field>
+
+          <mat-icon style="padding-top:10px; ">{{diploma.iconButton}}</mat-icon>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+          <button mat-raised-button color="warn" type="submit" (click)="edit(i)">Edit</button>
+          <button mat-raised-button color="accent" type="submit">Delete</button>
+    </mat-card-actions>
+    <div fxLayout="row" fxLayoutAlign="center" [ngStyle]="{'visibility': editMode === i ? 'visible' : 'hidden'}">
+        <button mat-raised-button color="primary" type="submit">Save</button>
+        <button mat-raised-button color="asdas" type="submit" (click)="cancel()">Cancel</button>
+        
+    </div>
+
+  </mat-card>
+
+</div>

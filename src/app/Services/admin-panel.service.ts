@@ -21,9 +21,37 @@ export class AdminPanelService implements OnInit {
 
   // REQUEST TO DB START
 
-  updateCard(obj) {
+  addItem(obj,endPoint) {
     const promise = new Promise( (rez,rej) => {
-      this.http.post('http://localhost:8081/updateCard',obj,{headers:this.headers})
+      this.http.post('http://localhost:8081/'+endPoint,obj,{headers:this.headers})
+        .subscribe( res => {
+          rez(res);
+        }, error => {
+          console.log(error);
+        })
+    })
+
+    return promise;
+  }
+  
+
+
+  getItems(endPoint) {
+    const promise = new Promise( (rez,rej) => {
+      this.http.get('http://localhost:8081/'+endPoint,{headers:this.headers})
+        .subscribe( res => {
+          rez(res);
+        }, error => {
+          console.log(error);
+        })
+    })
+    return promise;
+  }
+
+
+  updateItems(obj,endPoint) {
+    const promise = new Promise( (rez,rej) => {
+      this.http.post('http://localhost:8081/'+endPoint,obj,{headers:this.headers})
         .subscribe( res => {
           rez(res);
         }, error => {
@@ -35,9 +63,10 @@ export class AdminPanelService implements OnInit {
   }
 
 
-  deleteCard(obj){
+
+  deleteItem(obj,endPoint){
     const promise = new Promise( (rez,rej) => {
-      this.http.post('http://localhost:8081/deleteCard',obj,{headers:this.headers})
+      this.http.post('http://localhost:8081/'+endPoint,obj,{headers:this.headers})
         .subscribe( res => {
           rez(res);
         }, error => {
@@ -48,91 +77,6 @@ export class AdminPanelService implements OnInit {
     return promise;
   }
 
-
-  addCard(obj) {
-    const promise = new Promise( (rez,rej) => {
-      this.http.post('http://localhost:8081/addCards',obj,{headers:this.headers})
-        .subscribe( res => {
-          rez(res);
-        }, error => {
-          console.log(error);
-        })
-    })
-
-    return promise;
-  }
-
-
-  getCards() {
-    const promise = new Promise((rez, rej) => {
-      this.http.get('http://localhost:8081/getCards', { headers: this.headers })
-        .subscribe(res => {
-          rez(res)
-        }, error => {
-          console.log(error);
-        })
-    })
-
-    return promise;
-  }
-
-
-  updateButton(obj: Object) {
-    const promise = new Promise((rez, rej) => {
-      this.http.post('http://localhost:8081/updateButton', obj, { headers: this.headers })
-        .subscribe(res => {
-          rez(res);
-        }, error => {
-          console.log(error);
-        })
-    })
-
-    return promise;
-  }
-
-
-  getMenuItems() {
-    const promise = new Promise((rez, rej) => {
-      this.http.get('http://localhost:8081/getMenuItems', { headers: this.headers })
-        .subscribe(res => {
-          rez(res)
-        },
-          error => {
-            console.log(error);
-          })
-
-    });
-
-    return promise;
-  }
-
-
-  deleteButton(nume: string) {
-    const promise = new Promise((rez, rej) => {
-      this.http.post('http://localhost:8081/deleteButton', { nume }, { headers: this.headers })
-        .subscribe(res => {
-          rez(res);
-        }, error => {
-          console.log(error);
-        })
-    })
-
-    return promise;
-  }
-
-  postMenuButtons(obj: Object) {
-    const promise = new Promise((rez, rej) => {
-      this.http.post('http://localhost:8081/addMenuButton', obj, { headers: this.headers })
-        .subscribe((res) => {
-          rez(res);
-        },
-          (error) => {
-            console.log(error);
-          })
-    })
-
-    return promise;
-  }
 
   // REQUEST TO DB END
 

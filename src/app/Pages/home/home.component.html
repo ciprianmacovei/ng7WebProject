@@ -2,67 +2,16 @@
 
 <div fxLayout="row" fxLayoutAlign="center" class="marginTop">
   <div fxLayout="column" fxLayoutGap.lt-sm="3px" fxLayoutGap.gt-sm="1vh">
-    <div fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutGap.lt-sm="3px" fxLayoutGap.gt-sm="1vh">
+    <div fxLayout.gt-sm="row wrap" fxLayout.lt-md="column" fxLayoutAlign="center" >
 
-      <mat-card>
+      <mat-card appLoginAndRegister *ngFor="let dip of diplomasArray" style="margin:1em;cursor: pointer;" fxFlex.gt-md="20" fxFlex.md="40" fxFlex.lt-md="100">
         <mat-card-content class="centerItems">
-          <mat-icon>settings_input_component</mat-icon>
-          <p>Diploma in Audio Engineering </p>
+          <mat-icon>{{dip.iconButton}}</mat-icon>
+          <p>{{dip.titleButton}} </p>
         </mat-card-content>
       </mat-card>
-
-      <mat-card>
-        <mat-card-content class="centerItems">
-          <mat-icon>book</mat-icon>
-          <p>Diploma in Audio Engineering </p>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card>
-        <mat-card-content class="centerItems">
-          <mat-icon>mic</mat-icon>
-          <p>Diploma in Audio Engineering </p>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card>
-        <mat-card-content class="centerItems">
-          <mat-icon>create</mat-icon>
-          <p>Diploma in Audio Engineering </p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-
-    <div fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutGap.lt-sm="3px" fxLayoutGap.gt-sm="1vh">
-      <mat-card>
-        <mat-card-content class="centerItems">
-          <mat-icon>photo_size_select_actual</mat-icon>
-          <p>Diploma in Audio Engineering </p>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card>
-        <mat-card-content class="centerItems">
-          <mat-icon>pets</mat-icon>
-          <p>Diploma in Audio Engineering </p>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card>
-        <mat-card-content class="centerItems">
-          <mat-icon>timeline</mat-icon>
-          <p>Diploma in Audio Engineering </p>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card>
-        <mat-card-content class="centerItems">
-          <mat-icon>photo_library</mat-icon>
-          <p>Diploma in Audio Engineering </p>
-        </mat-card-content>
-      </mat-card>
-    </div>
   </div>
+</div>
 </div>
 
 <div class="marginTop" fxLayout.gt-sm="row wrap" fxLayout.lt-md="column" fxLayoutAlign="center">

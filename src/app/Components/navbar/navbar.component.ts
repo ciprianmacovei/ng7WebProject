@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
   constructor(private route: Router, private breakpointObserver: BreakpointObserver, private admin:AdminPanelService) { }
 
   ngOnInit() {
-    this.admin.getMenuItems()
+    this.admin.getItems('getMenuItems')
       .then( res => {
         this.arrayOfMenuButtons = res;
         this.arrayOfMenuButtons = this.arrayOfMenuButtons.reverse();

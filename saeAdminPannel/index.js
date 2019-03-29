@@ -30,17 +30,61 @@ app.use(function (req, res, next) {
 
 app.get('/', function (req, res) {
   res.send('Hello World');
-  var newAdmin = new model.cards({
-    title: 'Workshop Ableton Live 10',
-    imgUrl: 'https://bucharest.sae.edu/media_thumbs/Bucharest/Gallery/55169_site_config_320x175.jpg',
-    content: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.'
+  var newAdmin = new model.diplomas({
+    titleButton: 'Animatie 3D in Autodesk 3Ds Max',
+    iconButton: 'photo_library'
   })
 
   newAdmin.save(function (err, newadmin) {
     if (err) console.error(err);
-    else console.log(newAdmin.title, " has been added");
+    else console.log(newAdmin.titleButton, " has been added");
   })
 })
+
+
+// @@@@@@@@@@@@@@@ DIPLOMAS HOMEPAGE @@@@@@@@@@@@@@@@@
+
+
+// GET DIPLOMAS
+
+app.get('/getDiplomas', function(req,res) {
+  model.diplomas.find({},function(err,diplomasArray){
+    if (err) throw err;
+    else {
+      res.send(diplomasArray);
+    }
+  })
+});
+
+// GET DIPLOMAS
+
+
+// ADD DIPLOMAS
+
+app.post('/addDiplomas', function(req,res) {
+  let newDiploma = new model.diplomas(req.body)
+  newDiploma.save( function(err,diploma) {
+    if (err) throw err;
+    else console.log(' has beed added');
+  })
+});
+
+// ADD DIPLOMAS
+
+
+
+
+
+
+// @@@@@@@@@@@@@@@ DIPLOMAS HOMEPAGE @@@@@@@@@@@@@@@@@
+
+
+
+
+
+
+
+
 
 
 

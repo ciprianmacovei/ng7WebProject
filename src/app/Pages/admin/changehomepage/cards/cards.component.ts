@@ -3,6 +3,16 @@ import { AdminPanelService } from 'src/app/Services/admin-panel.service';
 import { NgForm } from '@angular/forms';
 import { CanComponentDeactivate } from 'src/app/Guards/candeactivate-guard.service';
 import { MatDialog } from '@angular/material';
+import { NotificationService } from 'src/app/Services/notification.service';
+
+
+interface card {
+  title: string;
+  imgUrl: string;
+  content: string;
+}
+
+
 
 @Component({
   selector: 'app-cards',
@@ -11,37 +21,38 @@ import { MatDialog } from '@angular/material';
 })
 export class CardsComponent implements OnInit, CanComponentDeactivate {
 
-  arrayCards:{title:string, imgUrl:string, content:string}[];
-  editModeDisabled:number = null;
+  arrayCards:card[];
+  editModeDisabled: number = null;
 
-  constructor(private admin:AdminPanelService,public dialog: MatDialog) { }
+  constructor(private admin: AdminPanelService, public dialog: MatDialog, public snackbar:NotificationService) { }
 
 
-  
+
 
   ngOnInit() {
-    this.admin.getCards()
-      .then( (res:{title:string, imgUrl:string, content:string}[]) => {
+    this.admin.getItems('getCards')
+      .then((res: card[]) => {
         this.arrayCards = res;
       })
   }
 
-  editCard(index:number) {
+  editCard(index: number) {
     this.editModeDisabled = index;
   }
 
-  deleteCard(index:number) {
-    console.log(this.arrayCards[index],'asdsad');
-    this.admin.deleteCard(this.arrayCards[index])
-      .then( res => console.log(res));
-    this.arrayCards.splice(index,1);
-    
+  deleteCard(index: number) {
+    console.log(this.arrayCards[index], 'asdsad');
+    this.admin.deleteItem(this.arrayCards[index],'deleteCard')
+      .then(res => console.log(res));
+    this.arrayCards.splice(index, 1);
+    this.snackbar.show('Deleted Card','danger');
+
   }
 
-  saveEdit(index:number) {
-  
-    this.admin.updateCard(this.arrayCards[index])
-      .then( res => this.editModeDisabled = null);
+  saveEdit(index: number) {
+    this.snackbar.show('Update Card','success');
+    this.admin.updateItems(this.arrayCards[index],'updateCard')
+      .then(res => this.editModeDisabled = null);
 
 
   }
@@ -50,8 +61,9 @@ export class CardsComponent implements OnInit, CanComponentDeactivate {
     this.editModeDisabled = null;
   }
 
-  addCard(card:NgForm) {
-    this.admin.addCard(card.value);
+  addCard(card: NgForm) {
+    this.admin.addItem(card.value,'addCards');
+    this.snackbar.show('Add Card','success');
     this.arrayCards.push(card.value);
   }
 
@@ -61,10 +73,8 @@ export class CardsComponent implements OnInit, CanComponentDeactivate {
   }
 
   confirmDialog() {
-    
     confirm("Please check if you saved the changes");
     return false;
-
   }
 
 }

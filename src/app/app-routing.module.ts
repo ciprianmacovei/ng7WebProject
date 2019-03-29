@@ -44,7 +44,7 @@ const routes: Routes = [
       { path: 'menu', component: ChangemenuComponent },
       {
         path: 'home', component: ChangehomepageComponent, children: [
-          { path: 'diplomas', component:DiplomasComponent},
+          { path: 'diplomas', component:DiplomasComponent, canDeactivate:[CandeactivateGuardService]},
           { path: 'cards', component:CardsComponent, canDeactivate:[CandeactivateGuardService]},
           { path: 'news', component:NewsComponent },
           { path: 'location', component:LocationComponent }

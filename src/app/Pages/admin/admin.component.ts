@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthentificationService } from 'src/app/Services/authentification.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
+import { NotificationService } from 'src/app/Services/notification.service';
 
 @Component({
   selector: 'app-admin',
@@ -13,7 +14,7 @@ export class AdminComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private auth: AuthentificationService, private route: Router, private snackBar: MatSnackBar, private thisroute: ActivatedRoute) { }
+  constructor(private auth: AuthentificationService, private route: Router, private snackBar: NotificationService, private thisroute: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -27,22 +28,11 @@ export class AdminComponent implements OnInit {
     this.auth.adminLogin(this.loginForm.value.username, this.loginForm.value.password)
       .then(res => {
         if (res !== null) {
-          this.snackBar.open('Login Succefully', 'Login', {
-            duration: 1000,
-            verticalPosition: 'top',
-            horizontalPosition: 'right',
-            panelClass: 'pannelSuccess'
-          });
-
+          this.snackBar.show('Succesfuly Logged In','success');
           this.route.navigate(['/adminPanel']);
 
         } else {
-          this.snackBar.open('Login Error', 'Login', {
-            duration: 1000,
-            verticalPosition: 'top',
-            horizontalPosition: 'right',
-            panelClass: 'pannelError'
-          });
+          this.snackBar.show('Login Incorect','danger');
         }
       })
   }
