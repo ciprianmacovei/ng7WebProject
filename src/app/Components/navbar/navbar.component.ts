@@ -5,6 +5,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 import { AdminPanelService } from 'src/app/Services/admin-panel.service';
 
+
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -34,6 +36,10 @@ export class NavbarComponent implements OnInit {
 
   moveTo(link) {
     this.route.navigate([link]);
+  }
+
+  abs() {
+    console.log('asdasdas');
   }
 
 }

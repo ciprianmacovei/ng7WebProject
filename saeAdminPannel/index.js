@@ -29,16 +29,68 @@ app.use(function (req, res, next) {
 
 
 app.get('/', function (req, res) {
-  res.send('Hello World');
-  var newAdmin = new model.diplomas({
-    titleButton: 'Animatie 3D in Autodesk 3Ds Max',
-    iconButton: 'photo_library'
-  })
 
-  newAdmin.save(function (err, newadmin) {
-    if (err) console.error(err);
-    else console.log(newAdmin.titleButton, " has been added");
-  })
+  // let updateName = req.body.updateName;
+  // let name = req.body.name;
+  // let icon = req.body.icon;
+  // let link = req.body.link;
+
+  model.saeMenu.findOneAndUpdate({
+    'name': 'About'
+  }, {
+      'submenu': [
+        {
+          name: 'Our Mission',
+          link: 'mision'
+        },
+        {
+          name: 'Our History',
+          link: 'history'
+        },
+        {
+          name: 'Student Showcase',
+          link: 'student'
+        },
+        {
+          name: 'FAQ',
+          link: 'faq'
+        },
+        {
+          name: 'Interviews',
+          link: 'interviews'
+        },
+        {
+          name: 'Jobs',
+          link: 'jobs'
+        },
+        {
+          name: 'Campus Pictures',
+          link: 'campus'
+        }, {
+          name: 'Open Day',
+          link: 'open'
+        }
+      ]
+    }, function (err, update) {
+      if (err) throw err;
+      else {
+        res.send(update);
+      }
+    })
+
+
+
+
+  // res.send('Hello World');
+  // var newAdmin = new model.diplomas({
+  //   titleButton: 'Animatie 3D in Autodesk 3Ds Max',
+  //   iconButton: 'photo_library'
+  // })
+
+  // newAdmin.save(function (err, newadmin) {
+  //   if (err) console.error(err);
+  //   else console.log(newAdmin.titleButton, " has been added");
+  // })
 })
 
 
@@ -47,8 +99,8 @@ app.get('/', function (req, res) {
 
 // GET DIPLOMAS
 
-app.get('/getDiplomas', function(req,res) {
-  model.diplomas.find({},function(err,diplomasArray){
+app.get('/getDiplomas', function (req, res) {
+  model.diplomas.find({}, function (err, diplomasArray) {
     if (err) throw err;
     else {
       res.send(diplomasArray);
@@ -61,9 +113,9 @@ app.get('/getDiplomas', function(req,res) {
 
 // ADD DIPLOMAS
 
-app.post('/addDiplomas', function(req,res) {
+app.post('/addDiplomas', function (req, res) {
   let newDiploma = new model.diplomas(req.body)
-  newDiploma.save( function(err,diploma) {
+  newDiploma.save(function (err, diploma) {
     if (err) throw err;
     else console.log(' has beed added');
   })
@@ -96,14 +148,14 @@ app.post('/addDiplomas', function(req,res) {
 
 // UPDATE CARD
 
-app.post('/updateCard', function(req,res) {
+app.post('/updateCard', function (req, res) {
   let card = req.body;
 
-  model.cards.findOneAndUpdate( {'_id':card._id}, card,
-   function(err,update){
-     if (err) throw err;
-     else res.send(update);
-   })
+  model.cards.findOneAndUpdate({ '_id': card._id }, card,
+    function (err, update) {
+      if (err) throw err;
+      else res.send(update);
+    })
 });
 
 // UPDATE CARD
@@ -114,7 +166,7 @@ app.post('/updateCard', function(req,res) {
 
 app.post('/deleteCard', function (req, res) {
   let card = req.body;
-  model.cards.find({'title':card.title, 'imgUrl':card.imgUrl, 'content':card.content}, function(err,card){
+  model.cards.find({ 'title': card.title, 'imgUrl': card.imgUrl, 'content': card.content }, function (err, card) {
     if (err) throw err;
     else res.send(card);
   }).remove().exec();
@@ -140,9 +192,9 @@ app.get('/getCards', function (req, res) {
 
 // ADD CARD
 
-app.post('/addCards', function (req,res) {
+app.post('/addCards', function (req, res) {
   let newCard = new model.cards(req.body)
-  newCard.save( function(err,card) {
+  newCard.save(function (err, card) {
     if (err) throw err;
     else console.log(card.title, ' has beed added');
   })
@@ -197,15 +249,15 @@ app.post('/updateButton', function (req, res) {
   model.saeMenu.findOneAndUpdate({
     'name': updateName
   }, {
-    'name': name,
-    'icon': icon,
-    'link': link
-  }, function (err, update) {
-    if (err) throw err;
-    else {
-      res.send(update);
-    }
-  })
+      'name': name,
+      'icon': icon,
+      'link': link
+    }, function (err, update) {
+      if (err) throw err;
+      else {
+        res.send(update);
+      }
+    })
 })
 
 

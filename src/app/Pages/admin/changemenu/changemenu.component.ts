@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AdminPanelService } from 'src/app/Services/admin-panel.service';
 import { NotificationService } from 'src/app/Services/notification.service';
 
-interface buttonMenu {
+export interface buttonMenu {
   name: string;
   icon: string;
   link: string;
+  submenu: {name:string,link:string}[];
 }
 
 
