@@ -22,6 +22,15 @@ import { DiplomasComponent } from './Pages/admin/changehomepage/diplomas/diploma
 import { NewsComponent } from './Pages/admin/changehomepage/news/news.component';
 import { LocationComponent } from './Pages/admin/changehomepage/location/location.component';
 import { CandeactivateGuardService } from './Guards/candeactivate-guard.service';
+import { AboutMComponent } from './Pages/about/about-m/about-m.component';
+import { MisionComponent } from './Pages/about/mision/mision.component';
+import { HistoryComponent } from './Pages/about/history/history.component';
+import { StudentComponent } from './Pages/about/student/student.component';
+import { FaqComponent } from './Pages/about/faq/faq.component';
+import { InterviewsComponent } from './Pages/about/interviews/interviews.component';
+import { JobsComponent } from './Pages/about/jobs/jobs.component';
+import { CampusComponent } from './Pages/about/campus/campus.component';
+import { OpenComponent } from './Pages/about/open/open.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -33,7 +42,17 @@ const routes: Routes = [
       { path: 'cost', component: CostComponent },
       { path: 'enroll-page', component: EnrollPageComponent },
       { path: 'students', component: StudentsComponent },
-      { path: 'about', component: AboutComponent }
+      { path: 'about', component: AboutComponent, children: [
+        { path: '', component:AboutMComponent, pathMatch:'full'},
+        { path: 'mision', component:MisionComponent},
+        { path: 'history', component:HistoryComponent},
+        { path: 'student', component:StudentComponent},
+        { path: 'faq', component:FaqComponent},
+        { path: 'interviews', component:InterviewsComponent},
+        { path: 'jobs', component:JobsComponent},
+        { path: 'campus', component:CampusComponent},
+        { path: 'open', component:OpenComponent}
+      ] }
     ]
   },
   // { path: 'login', component: LoginComponent },

@@ -6,7 +6,7 @@ export interface buttonMenu {
   name: string;
   icon: string;
   link: string;
-  submenu: {name:string,link:string}[];
+  submenu?: {name:string,link:string}[];
 }
 
 

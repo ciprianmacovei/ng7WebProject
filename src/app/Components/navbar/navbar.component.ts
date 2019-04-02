@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 import { AdminPanelService } from 'src/app/Services/admin-panel.service';
+import { MatMenuTrigger } from '@angular/material';
 
 
 
@@ -14,7 +15,8 @@ import { AdminPanelService } from 'src/app/Services/admin-panel.service';
 })
 export class NavbarComponent implements OnInit {
 
-  arrayOfMenuButtons:any;
+  arrayOfMenuButtons: any;
+
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -23,23 +25,25 @@ export class NavbarComponent implements OnInit {
 
 
 
-  constructor(private route: Router, private breakpointObserver: BreakpointObserver, private admin:AdminPanelService) { }
+  constructor(private route: Router, private breakpointObserver: BreakpointObserver, private admin: AdminPanelService, private activeR: ActivatedRoute) { }
 
   ngOnInit() {
     this.admin.getItems('getMenuItems')
-      .then( res => {
+      .then(res => {
         this.arrayOfMenuButtons = res;
         this.arrayOfMenuButtons = this.arrayOfMenuButtons.reverse();
         console.log(this.arrayOfMenuButtons);
       })
   }
 
-  moveTo(link) {
-    this.route.navigate([link]);
+  moveTo(link:string) {
+      this.route.navigate([link]);
   }
 
-  abs() {
-    console.log('asdasdas');
+  moveToSubmenu(link:string) {
+      this.route.navigate([link],{relativeTo:this.activeR});
   }
+
+  
 
 }
