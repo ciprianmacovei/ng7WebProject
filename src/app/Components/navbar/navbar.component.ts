@@ -27,7 +27,6 @@ export class NavbarComponent implements OnInit {
     this.admin.getItems('getMenuItems')
       .then( res => {
         this.arrayOfMenuButtons = res;
-        this.arrayOfMenuButtons = this.arrayOfMenuButtons.reverse();
         console.log(this.arrayOfMenuButtons);
       })
   }
