@@ -46,6 +46,16 @@ import { CardsComponent } from './Pages/admin/changehomepage/cards/cards.compone
 import { NewsComponent } from './Pages/admin/changehomepage/news/news.component';
 import { LocationComponent } from './Pages/admin/changehomepage/location/location.component';
 import { NotificationComponent } from './Components/notification/notification.component';
+import { AboutMComponent } from './Pages/about/about-m/about-m.component';
+import { MisionComponent } from './Pages/about/mision/mision.component';
+import { HistoryComponent } from './Pages/about/history/history.component';
+import { StudentComponent } from './Pages/about/student/student.component';
+import { FaqComponent } from './Pages/about/faq/faq.component';
+import { InterviewsComponent } from './Pages/about/interviews/interviews.component';
+import { JobsComponent } from './Pages/about/jobs/jobs.component';
+import { CampusComponent } from './Pages/about/campus/campus.component';
+import { OpenComponent } from './Pages/about/open/open.component';
+import { MenuComponent } from './Components/menu/menu.component';
 
 
 
@@ -75,6 +85,16 @@ import { NotificationComponent } from './Components/notification/notification.co
     NewsComponent,
     LocationComponent,
     NotificationComponent,
+    AboutMComponent,
+    MisionComponent,
+    HistoryComponent,
+    StudentComponent,
+    FaqComponent,
+    InterviewsComponent,
+    JobsComponent,
+    CampusComponent,
+    OpenComponent,
+    MenuComponent,
   ],
   imports: [
     MatFormFieldModule,

@@ -1,0 +1,8 @@
+{ "_id" : { "$oid" : "5c9b76ae803b46255b792aef" }, "titleButton" : "Diploma in Audio Engineering", "iconButton" : "settings_input_component", "__v" : 0 }
+{ "_id" : { "$oid" : "5c9b77abf8c77325e4cdd19c" }, "titleButton" : "Diploma in Animatie si Game Design", "iconButton" : "book", "__v" : 0 }
+{ "_id" : { "$oid" : "5c9b77df4d70652616454e82" }, "titleButton" : "Live Sound", "iconButton" : "mic", "__v" : 0 }
+{ "_id" : { "$oid" : "5c9b798a60a235268fbbe768" }, "titleButton" : "Grafica aplicata in 3D Max si Unreal Engine", "iconButton" : "create", "__v" : 0 }
+{ "_id" : { "$oid" : "5c9b79e29aca6026c2a0bfd4" }, "titleButton" : "Autodesk Maya", "iconButton" : "photo_size_select_actual", "__v" : 0 }
+{ "_id" : { "$oid" : "5c9b7a341115d226f734d8c4" }, "titleButton" : "Secretele Mixajului", "iconButton" : "pets", "__v" : 0 }
+{ "_id" : { "$oid" : "5c9b7a561b0d15271db001a4" }, "titleButton" : "Ableton Live 10", "iconButton" : "timeline", "__v" : 0 }
+{ "_id" : { "$oid" : "5c9b7a7f4d8de027538a28bd" }, "titleButton" : "Animatie 3D in Autodesk 3Ds Max", "iconButton" : "photo_library", "__v" : 0 }

@@ -27,7 +27,19 @@ var saeMenuSchema = new Schema({
         dropDups:true
     },
     icon: String,
-    link: String
+    link: String,
+    submenu: {
+        type:[{
+            name:{
+                type:String,
+                required:true
+            },
+            link:{
+                type:String,
+                required:true
+            }
+        }]
+    }
 });
 
 var saeMenu = mongoose.model('saeMenu',saeMenuSchema);
@@ -45,6 +57,7 @@ var cardsSchema = new Schema({
         type:String,
         required: true
     }
+   
 })
 
 var cards = mongoose.model('cards',cardsSchema);

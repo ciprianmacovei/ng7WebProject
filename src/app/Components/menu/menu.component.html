@@ -1,0 +1,13 @@
+<button mat-menu-item (click)="moveTo(menuButton.link,menuButton.submenu)">
+
+  <mat-icon>{{menuButton.icon ? menuButton.icon : "navigate_next"}}</mat-icon><span>{{menuButton.name}}</span>
+  <span *ngIf="menuButton.submenu && menuButton.submenu.length" style="float:right">
+    <mat-icon [@indicatorRotate]="expanded ? 'expanded': 'collapsed'">
+      expand_more
+    </mat-icon>
+  </span>
+</button>
+
+<div *ngIf="expanded">
+  <app-menu *ngFor="let buttonSub of menuButton.submenu" [menuButton]="buttonSub"></app-menu>
+</div>
