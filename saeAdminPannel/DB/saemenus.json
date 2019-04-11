@@ -3,4 +3,4 @@
 { "_id" : { "$oid" : "5c8f7f32db5a5ca88f9c0208" }, "name" : "Enroll", "icon" : "accessibility", "link" : "enroll-page" }
 { "_id" : { "$oid" : "5c8f7f3fdb5a5ca88f9c0209" }, "name" : "Cost & Dates", "icon" : "date_range", "link" : "cost" }
 { "_id" : { "$oid" : "5c8f7f4ddb5a5ca88f9c020a" }, "name" : "Courses", "icon" : "library_books", "link" : "courses" }
-{ "_id" : { "$oid" : "5c8f81b2db5a5ca88f9c020b" }, "name" : "Home", "icon" : "home", "link" : "home" }
+{ "_id" : { "$oid" : "5caf422b60577c154d41bfd6" }, "name" : "Home", "icon" : "home", "link" : "home", "submenu" : [], "__v" : 0 }

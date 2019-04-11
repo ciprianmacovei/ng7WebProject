@@ -5,18 +5,25 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <mat-menu></mat-menu>
-      <div *ngFor="let button of arrayOfMenuButtons;let i = index">
+      <app-menu *ngFor="let menuButton of arrayOfMenuButtons" [menuButton]="menuButton"></app-menu>
+      <!-- <div *ngFor="let button of arrayOfMenuButtons;let i = index">
         <button mat-menu-item (click)="moveTo(button.link)" [matMenuTriggerFor]="submenu">
           <mat-icon>{{button.icon}}</mat-icon><span>{{button.name}}</span>
         </button>
-          <mat-menu #submenu="matMenu" xPosition="before">
+
+        <div>
+        <mat-menu #submenu="matMenu" xPosition="before" [overlapTrigger]="false" >
+          <div>
             <div *ngFor="let buttonSub of button.submenu">
               <button mat-menu-item (click)="moveToSubmenu(buttonSub.link)">
                 <mat-icon>arrow_right_alt</mat-icon><span>{{buttonSub.name}}</span>
               </button>
             </div>
-          </mat-menu>
-      </div>
+          </div>
+        </mat-menu>
+      </div> -->
+      <!-- </div> -->
+
       <!-- <button mat-menu-item (click)="moveTo('home')">
         <mat-icon>home</mat-icon><span>Home</span>
       </button>

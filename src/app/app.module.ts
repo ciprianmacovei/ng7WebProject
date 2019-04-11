@@ -55,6 +55,7 @@ import { InterviewsComponent } from './Pages/about/interviews/interviews.compone
 import { JobsComponent } from './Pages/about/jobs/jobs.component';
 import { CampusComponent } from './Pages/about/campus/campus.component';
 import { OpenComponent } from './Pages/about/open/open.component';
+import { MenuComponent } from './Components/menu/menu.component';
 
 
 
@@ -93,6 +94,7 @@ import { OpenComponent } from './Pages/about/open/open.component';
     JobsComponent,
     CampusComponent,
     OpenComponent,
+    MenuComponent,
   ],
   imports: [
     MatFormFieldModule,
