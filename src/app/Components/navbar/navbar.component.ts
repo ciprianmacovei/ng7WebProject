@@ -4,8 +4,7 @@ import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 import { AdminPanelService } from 'src/app/Services/admin-panel.service';
-import { MatMenuTrigger } from '@angular/material';
-
+import { saemenus } from '../../Shared/dataBase.models';
 
 
 @Component({
@@ -29,19 +28,12 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.admin.getItems('getMenuItems')
-      .then(res => {
-        this.arrayOfMenuButtons = res;
+      .then( (res:saemenus[]) => {
+        this.arrayOfMenuButtons = res.reverse();
         console.log(this.arrayOfMenuButtons);
       })
   }
 
-  moveTo(link:string) {
-      this.route.navigate([link]);
-  }
-
-  moveToSubmenu(link:string) {
-      this.route.navigate([link],{relativeTo:this.activeR});
-  }
 
   
 

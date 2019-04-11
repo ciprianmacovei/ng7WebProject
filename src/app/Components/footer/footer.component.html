@@ -1,3 +1,8 @@
-<mat-toolbar color="warm" [ngClass]=" className ? className : 'buttomToolBar'" >
+<mat-toolbar color="warm" [ngClass]=" className ? className : 'buttomToolBar'" *ngIf="!(isHandset$ | async)">
+  <p class="title-center">© SAE Institute 2015. All rights reserved. Privacy Policy Terms and Conditions</p>
+</mat-toolbar>
+
+
+<mat-toolbar color="warm" class="buttomToolBarActive" *ngIf="(isHandset$ | async)">
   <p class="title-center">© SAE Institute 2015. All rights reserved. Privacy Policy Terms and Conditions</p>
 </mat-toolbar>

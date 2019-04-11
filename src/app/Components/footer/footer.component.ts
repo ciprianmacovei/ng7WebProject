@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-footer',
@@ -9,8 +12,15 @@ import { Input } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   @Input('className') className:string;
+  
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches)
+    );
 
-  constructor() {
+
+
+  constructor(private breakpointObserver: BreakpointObserver) {
   
   }
 
