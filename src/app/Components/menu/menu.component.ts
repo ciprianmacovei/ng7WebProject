@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
   constructor(private route: Router, private activeR: ActivatedRoute) { }
 
   ngOnInit() {
-
+    console.log(this.activeR);
   }
 
   moveTo(link: string, button: any) {

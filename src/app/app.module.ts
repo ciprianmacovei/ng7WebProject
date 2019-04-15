@@ -56,6 +56,8 @@ import { JobsComponent } from './Pages/about/jobs/jobs.component';
 import { CampusComponent } from './Pages/about/campus/campus.component';
 import { OpenComponent } from './Pages/about/open/open.component';
 import { MenuComponent } from './Components/menu/menu.component';
+import { SearchComponent } from './Components/search/search.component';
+import { BoldPipe } from './Pipes/bold.pipe';
 
 
 
@@ -95,6 +97,8 @@ import { MenuComponent } from './Components/menu/menu.component';
     CampusComponent,
     OpenComponent,
     MenuComponent,
+    SearchComponent,
+    BoldPipe,
   ],
   imports: [
     MatFormFieldModule,

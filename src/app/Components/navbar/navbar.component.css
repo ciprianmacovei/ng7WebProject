@@ -62,5 +62,27 @@
     cursor: pointer;
   }
 
+  .searchBar {
+    flex: 1 1 auto;
+      text-align: center;
+  }
+
+
+
+  .border-button {  
+    border: solid 3px #FC5185; 
+    clip-path: polygon( 
+      calc(0% + 5px) calc(0% + 5px), 
+      calc(100% - 5px) calc(0% + 5px), 
+      calc(100% - 5px) calc(100% - 5px), 
+      calc(0% + 5px) calc(100% - 5px) 
+    );
+    transition: clip-path 0.6s linear;
+  }
+  
+  .border-button:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
 
 

@@ -88,18 +88,26 @@
           *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-        <span class="ml-2"><img src="https://bucharest.sae.edu/templates/local/strict/img/sae_logo.png"
-            class="LogoSae"></span>
+        <span class="ml-2" *ngIf="!(isHandset$ | async)">
+          <img src="https://bucharest.sae.edu/templates/local/strict/img/sae_logo.png" class="LogoSae">
+        </span>
+
+        <span class="searchBar"></span>
+
+        <app-search [ngClass]="{'mt-4':!( isHandset$ | async ) , 'mt-3':( isHandset$ | async )}"></app-search>
+
+
         <span class="spaceR"></span>
 
-        <button appLoginAndRegister mat-button (click)="moveTo('login')" class="mr-2 borderS">
+        <button mat-button (click)="moveTo('login')" class="border-button"
+          [ngClass]="{ 'mr-2' : !(isHandset$ | async), 'ml-4' : (isHandset$ | async)}">
           <mat-icon class="colorRightMenu">exit_to_app</mat-icon>
-          <span class="colorRightMenu">Login</span>
+          <span class="colorRightMenu" *ngIf="!(isHandset$ | async)">Login</span>
         </button>
 
-        <button appLoginAndRegister mat-button (click)="moveTo('register')" class="borderS">
+        <button mat-button (click)="moveTo('register')" class="border-button">
           <mat-icon class="colorRightMenu">get_app</mat-icon>
-          <span class="colorRightMenu">Register</span>
+          <span class="colorRightMenu" *ngIf="!(isHandset$ | async)">Register</span>
         </button>
 
       </mat-toolbar-row>

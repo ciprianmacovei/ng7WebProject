@@ -1,0 +1,17 @@
+<div fxLayout="row">
+  <input type="search" class="searchBox" [matAutocomplete]="auto" [formControl]="searchControl" [ngStyle]="{'width': ( isHandset$ | async ) ? '500px' : '100%'}">
+  <button class="button">
+    <mat-icon>search</mat-icon>
+  </button>
+</div>
+
+<div class="spacer"></div>
+
+
+
+<mat-autocomplete #auto="matAutocomplete">
+  <mat-option *ngFor="let item of filteredResults$ | async" [value]="item">>
+    <span [innerHTML]="item | bold:searchControl.value"></span>
+    <small>Example: Aici</small>
+  </mat-option>
+</mat-autocomplete>
